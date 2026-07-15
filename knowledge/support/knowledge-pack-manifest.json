@@ -1,0 +1,187 @@
+{
+  "product": "Funding Workflow Guardrail Builder",
+  "version": "1.0",
+  "last_updated": "2026-07-15",
+  "files": [
+    {
+      "sequence": 1,
+      "filename": "product-overview.md",
+      "category": "core",
+      "purpose": "Product role, users, modes, inputs, outputs, and limitations",
+      "status": "production-ready",
+      "size_bytes": 6900,
+      "sha256": "f55e3f505078386c950d2a27083920d27c974fd4d7624510394f2fba91ddd8af"
+    },
+    {
+      "sequence": 2,
+      "filename": "human-review-checkpoint-map.md",
+      "category": "core",
+      "purpose": "Master human-in-the-loop framework",
+      "status": "production-ready",
+      "size_bytes": 21699,
+      "sha256": "4541e23ee2b7ee8eac06093c5f88a5a4e221157958c95b07ddf4e2069f959e48"
+    },
+    {
+      "sequence": 3,
+      "filename": "green-yellow-red-classifier.md",
+      "category": "core",
+      "purpose": "Task risk-classification method and examples",
+      "status": "production-ready",
+      "size_bytes": 8320,
+      "sha256": "632d8d2006f85d66418045878c8110b77aa41c2e3188af7cfcfb733a1e0b0b70"
+    },
+    {
+      "sequence": 4,
+      "filename": "eight-workflow-checkpoints.md",
+      "category": "core",
+      "purpose": "Detailed checkpoint controls",
+      "status": "production-ready",
+      "size_bytes": 11708,
+      "sha256": "c822e0d07abebcfee14804ceadc894d13aba1399d7fc3f883fe2f8b179d7f2d6"
+    },
+    {
+      "sequence": 5,
+      "filename": "exception-trigger-library.md",
+      "category": "core",
+      "purpose": "Pause and escalation trigger catalog",
+      "status": "production-ready",
+      "size_bytes": 7828,
+      "sha256": "d38ad55c0aa4fc379a32d78cc1250b53bee8f7aae625a33108b5644828b8ccc5"
+    },
+    {
+      "sequence": 6,
+      "filename": "reviewer-role-matrix.md",
+      "category": "core",
+      "purpose": "Reviewer roles, authority, and assignments",
+      "status": "production-ready",
+      "size_bytes": 7428,
+      "sha256": "9c3def893adae78aa7b4863c37dde66ca869aed5ef87a92a7131284eb50791ae"
+    },
+    {
+      "sequence": 7,
+      "filename": "escalation-paths.md",
+      "category": "core",
+      "purpose": "Exception and incident escalation routes",
+      "status": "production-ready",
+      "size_bytes": 7144,
+      "sha256": "a8f6d523ffdf8b5bdaf9c27f9250b22f5dacdd9b4ff8fb04736bc4cd40e4cca4"
+    },
+    {
+      "sequence": 8,
+      "filename": "audit-log-schema.md",
+      "category": "core",
+      "purpose": "Audit evidence and field schema",
+      "status": "production-ready",
+      "size_bytes": 6487,
+      "sha256": "c3b1483c56767cf3637d302934b356644e3c6b4a3ac32445c308a4135776dfc1"
+    },
+    {
+      "sequence": 9,
+      "filename": "override-log-template.md",
+      "category": "core",
+      "purpose": "Human override documentation",
+      "status": "production-ready",
+      "size_bytes": 4814,
+      "sha256": "053f97e4705a592af029db0f17dbf005c8e51d95db64c5d316a5ede69503874b"
+    },
+    {
+      "sequence": 10,
+      "filename": "forbidden-actions.md",
+      "category": "core",
+      "purpose": "Autonomous-action prohibitions",
+      "status": "production-ready",
+      "size_bytes": 5970,
+      "sha256": "1cbc03135d4a0b4424a6915a964b335642f3fe37bf14f111cd39da52e33e2726"
+    },
+    {
+      "sequence": 11,
+      "filename": "prelaunch-qa-scorecard.md",
+      "category": "core",
+      "purpose": "40-point readiness score",
+      "status": "production-ready",
+      "size_bytes": 5496,
+      "sha256": "3a8888d54091a4e2f300906bcd67bb3370c846c85b89cfb1f916cba0b8d1a489"
+    },
+    {
+      "sequence": 12,
+      "filename": "safe-language-and-disclaimers.md",
+      "category": "core",
+      "purpose": "Safe wording and limitations",
+      "status": "production-ready",
+      "size_bytes": 5712,
+      "sha256": "026335e7faf7a7387948e7897746584035d657e5651a354ea8615046e5e9a664"
+    },
+    {
+      "sequence": 13,
+      "filename": "n8n-routing-patterns.md",
+      "category": "implementation",
+      "purpose": "n8n workflow design patterns",
+      "status": "production-ready",
+      "size_bytes": 6350,
+      "sha256": "6a4231dac69299f987e20f06e085f85cbfd6e782a64735ed7eec07eafdc18063"
+    },
+    {
+      "sequence": 14,
+      "filename": "crm-routing-patterns.md",
+      "category": "implementation",
+      "purpose": "CRM stages, fields, and routing",
+      "status": "production-ready",
+      "size_bytes": 5617,
+      "sha256": "71213cf27d38fb6ac16dd82153def655c6d91486422d52d9a82fcc429bf792a3"
+    },
+    {
+      "sequence": 15,
+      "filename": "notion-airtable-review-queue.md",
+      "category": "implementation",
+      "purpose": "Notion and Airtable queue designs",
+      "status": "production-ready",
+      "size_bytes": 4987,
+      "sha256": "e8aacb3affee48325c8381d56766398fb5090cdd40c61a99d095bcb6eed99a72"
+    },
+    {
+      "sequence": 16,
+      "filename": "workflow-output-templates.md",
+      "category": "implementation",
+      "purpose": "Reusable output formats",
+      "status": "production-ready",
+      "size_bytes": 6164,
+      "sha256": "e8ad63e181e74779d38ee53294e57540ed8972a55f05eb909175f332a3e5e755"
+    },
+    {
+      "sequence": 17,
+      "filename": "example-funding-workflows.md",
+      "category": "implementation",
+      "purpose": "Twelve synthetic workflow examples",
+      "status": "production-ready",
+      "size_bytes": 15375,
+      "sha256": "d24bae07eb0b9b85ff6c184765473e96360dade1d646c59e1f4cbdfed258e5a2"
+    },
+    {
+      "sequence": 18,
+      "filename": "workflow-test-cases.md",
+      "category": "implementation",
+      "purpose": "Evaluation and failure test suite",
+      "status": "production-ready",
+      "size_bytes": 7054,
+      "sha256": "971805c513cc801f013456fce397c48e48f763f1c42328d20117a0a96869d8f9"
+    },
+    {
+      "sequence": 19,
+      "filename": "data-privacy-and-redaction.md",
+      "category": "implementation",
+      "purpose": "Sensitive-data handling and redaction",
+      "status": "production-ready",
+      "size_bytes": 5322,
+      "sha256": "d01aab9426b6c3a8621fc345ea6089b2eaf9b86e563ee3f7666dd04f7221712c"
+    },
+    {
+      "sequence": 20,
+      "filename": "action-endpoints.md",
+      "category": "implementation",
+      "purpose": "Proposed Action catalog and contracts",
+      "status": "production-ready",
+      "size_bytes": 8511,
+      "sha256": "f2f76816ef743dde298e3c489289dc32b27a8d6fd17cf81ed9b7afca5e656669"
+    }
+  ]
+}

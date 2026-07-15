@@ -1,0 +1,167 @@
+{
+  "product": "Funding Workflow Guardrail Builder",
+  "version": "1.0",
+  "validated_at": "2026-07-15",
+  "knowledge_files_expected": 20,
+  "knowledge_files_found": 20,
+  "missing_files": [],
+  "unexpected_markdown_files": [],
+  "filename_validation_passed": true,
+  "markdown_validation_passed": true,
+  "markdown_file_results": {
+    "product-overview.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "human-review-checkpoint-map.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "green-yellow-red-classifier.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "eight-workflow-checkpoints.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "exception-trigger-library.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "reviewer-role-matrix.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "escalation-paths.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "audit-log-schema.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "override-log-template.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "forbidden-actions.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "prelaunch-qa-scorecard.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "safe-language-and-disclaimers.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "n8n-routing-patterns.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "crm-routing-patterns.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "notion-airtable-review-queue.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "workflow-output-templates.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "example-funding-workflows.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "workflow-test-cases.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "data-privacy-and-redaction.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    },
+    "action-endpoints.md": {
+      "starts_with_h1": true,
+      "has_purpose": true,
+      "has_metadata": true,
+      "has_operational_summary": true,
+      "minimum_size": true
+    }
+  },
+  "json_blocks_checked": 16,
+  "json_errors": [],
+  "yaml_blocks_checked": 30,
+  "yaml_parser_available": true,
+  "yaml_errors": [],
+  "cross_file_checks": {
+    "core_rule": true,
+    "eight_checkpoint_names": true,
+    "score_ranges": true,
+    "broker_creditor_distinction": true,
+    "non_guarantee_language": true,
+    "exact_file_count": true
+  },
+  "overall_pass": true
+}
