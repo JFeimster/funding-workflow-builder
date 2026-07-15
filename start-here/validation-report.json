@@ -1,0 +1,85 @@
+{
+  "files": [
+    {
+      "path": "start-here/getting-started.html",
+      "bytes": 42971,
+      "doctype": true,
+      "header": true,
+      "main": true,
+      "footer": true,
+      "shared_css": true,
+      "shared_js": true
+    },
+    {
+      "path": "start-here/privacy-input-guide.html",
+      "bytes": 51384,
+      "doctype": true,
+      "header": true,
+      "main": true,
+      "footer": true,
+      "shared_css": true,
+      "shared_js": true
+    }
+  ],
+  "json_ld": [
+    {
+      "file": "getting-started.html",
+      "block": 1,
+      "type": "WebPage",
+      "valid": true
+    },
+    {
+      "file": "getting-started.html",
+      "block": 2,
+      "type": "BreadcrumbList",
+      "valid": true
+    },
+    {
+      "file": "privacy-input-guide.html",
+      "block": 1,
+      "type": "WebPage",
+      "valid": true
+    },
+    {
+      "file": "privacy-input-guide.html",
+      "block": 2,
+      "type": "BreadcrumbList",
+      "valid": true
+    }
+  ],
+  "relative_refs": {
+    "getting-started.html": [
+      "../assets/favicon.svg",
+      "../styles.css",
+      "../index.html",
+      "../index.html",
+      "getting-started.html",
+      "privacy-input-guide.html",
+      "privacy-input-guide.html",
+      "privacy-input-guide.html",
+      "privacy-input-guide.html",
+      "../index.html",
+      "../embed.html",
+      "../script.js"
+    ],
+    "privacy-input-guide.html": [
+      "../assets/favicon.svg",
+      "../styles.css",
+      "../index.html",
+      "../index.html",
+      "getting-started.html",
+      "privacy-input-guide.html",
+      "getting-started.html",
+      "getting-started.html",
+      "getting-started.html",
+      "../index.html",
+      "../embed.html",
+      "../script.js"
+    ]
+  },
+  "future_links_removed": [
+    "../trust/security-data-handling.html",
+    "../trust/model-behavior-boundaries.html",
+    "../guardrail-builder/forbidden-actions.html"
+  ]
+}
