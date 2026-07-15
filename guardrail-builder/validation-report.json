@@ -1,0 +1,34 @@
+{
+  "file": "guardrail-builder/new-map.html",
+  "bytes": 67404,
+  "doctype": true,
+  "canonical": true,
+  "gpt_url": true,
+  "shared_css": true,
+  "shared_js": true,
+  "step_panels": 8,
+  "json_ld": [
+    {
+      "block": 1,
+      "type": "WebApplication",
+      "valid": true
+    },
+    {
+      "block": 2,
+      "type": "BreadcrumbList",
+      "valid": true
+    }
+  ],
+  "features": {
+    "local_storage": true,
+    "per_step_validation": true,
+    "structured_review": true,
+    "zone_analysis": true,
+    "markdown_export": true,
+    "json_export": true,
+    "gpt_handoff": true,
+    "print_mode": true,
+    "keyboard_shortcuts": true
+  },
+  "javascript_syntax_check": "passed with node --check"
+}

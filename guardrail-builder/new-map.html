@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Guardrail Map Wizard | Funding Workflow Guardrail Builder</title>
+  <meta name="description" content="Build a structured funding-workflow guardrail map through a seven-step wizard covering stages, data, actions, channels, roles, risks, and outputs.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#070A12">
+  <link rel="canonical" href="https://funding-workflow-builder.vercel.app/guardrail-builder/new-map.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="New Guardrail Map Wizard">
+  <meta property="og:description" content="Map workflow stages, data, AI actions, human authority, exception triggers, and implementation outputs before automation goes live.">
+  <meta property="og:url" content="https://funding-workflow-builder.vercel.app/guardrail-builder/new-map.html">
+  <meta property="og:image" content="https://funding-workflow-builder.vercel.app/assets/og-image.svg">
+  <meta property="og:site_name" content="Funding Workflow Guardrail Builder">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="New Guardrail Map Wizard">
+  <meta name="twitter:description" content="A privacy-first seven-step intake for human-in-the-loop funding workflow controls.">
+  <meta name="twitter:image" content="https://funding-workflow-builder.vercel.app/assets/og-image.svg">
+
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .gw-page{--p:#9f67ff;--c:#67e8f9;--g:#22c55e;--y:#fbbf24;--r:#fb5f5f;--b:rgba(148,163,184,.18);--bs:rgba(148,163,184,.3);--panel:rgba(16,24,39,.84)}
+    .gw-hero{padding:clamp(4rem,7vw,6.5rem) 0 clamp(2.8rem,5vw,4.2rem)}
+    .gw-hero-grid{display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+    .gw-hero h1{margin:0;max-width:900px;font-size:clamp(3.2rem,7vw,6.4rem);line-height:.95;letter-spacing:-.062em;font-weight:900}
+    .gw-hero h1 span{display:block;background:linear-gradient(90deg,#fff,var(--p),var(--c));background-clip:text;-webkit-background-clip:text;color:transparent}
+    .gw-hero p{max-width:780px;color:#b9c4d3;font-size:clamp(1.02rem,1.7vw,1.2rem);line-height:1.72}
+    .gw-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}.gw-meta span{padding:.36rem .58rem;border:1px solid var(--b);border-radius:999px;color:#94a3b8;font:900 .6rem var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+    .gw-console{overflow:hidden;border:1px solid rgba(124,58,237,.35);border-radius:22px;background:radial-gradient(circle at 90% 0,rgba(124,58,237,.18),transparent 17rem),linear-gradient(180deg,rgba(21,31,50,.96),rgba(8,13,23,.98));box-shadow:var(--shadow)}
+    .gw-console-bar{padding:.8rem 1rem;display:flex;justify-content:space-between;border-bottom:1px solid var(--b);color:#94a3b8;font:800 .61rem var(--font-mono);letter-spacing:.07em}
+    .gw-console-bar b{color:#86efac}.gw-console ol{margin:0;padding:.8rem;display:grid;gap:.5rem;list-style:none}.gw-console li{padding:.7rem;display:grid;grid-template-columns:30px 1fr auto;gap:.6rem;align-items:center;border:1px solid var(--b);border-radius:11px;background:rgba(7,10,18,.62)}
+    .gw-console li>span:first-child{display:grid;place-items:center;width:28px;aspect-ratio:1;border-radius:8px;background:rgba(124,58,237,.13);color:#c4b5fd;font:900 .55rem var(--font-mono)}
+    .gw-console strong{display:block;font-size:.8rem}.gw-console small{display:block;color:#718096;font-size:.66rem}.gw-zone{padding:.28rem .45rem;border-radius:999px;font:900 .5rem var(--font-mono)}.z-g{color:#86efac;background:rgba(34,197,94,.1)}.z-y{color:#fde68a;background:rgba(251,191,36,.1)}.z-r{color:#fecaca;background:rgba(251,95,95,.1)}
+    .gw-section{padding-bottom:clamp(5rem,8vw,8rem)}.gw-shell{overflow:hidden;border:1px solid var(--bs);border-radius:24px;background:linear-gradient(180deg,rgba(16,24,39,.96),rgba(7,10,18,.99));box-shadow:var(--shadow)}
+    .gw-toolbar,.gw-footer{padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(5,8,16,.48)}.gw-toolbar{border-bottom:1px solid var(--b)}.gw-footer{border-top:1px solid var(--b)}
+    .gw-status strong,.gw-status span{display:block}.gw-status strong{font-size:.9rem}.gw-status span{color:#718096;font-size:.72rem}.gw-actions{display:flex;flex-wrap:wrap;gap:.5rem}
+    .gw-tool,.gw-nav,.gw-export{min-height:40px;padding:.65rem .82rem;border:1px solid var(--b);border-radius:10px;background:rgba(8,13,23,.78);color:#e2e8f0;cursor:pointer;font-weight:850;font-size:.76rem}.gw-tool:hover,.gw-nav:hover,.gw-export:hover{border-color:rgba(6,182,212,.5)}.gw-primary{border-color:transparent;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff}
+    .gw-progress{padding:.8rem 1rem;border-bottom:1px solid var(--b)}.gw-progress-head{display:flex;justify-content:space-between;color:#718096;font:900 .61rem var(--font-mono);letter-spacing:.06em}.gw-track{height:8px;margin-top:.5rem;border-radius:999px;background:rgba(148,163,184,.12);overflow:hidden}.gw-value{height:100%;width:12.5%;background:linear-gradient(90deg,#7c3aed,#06b6d4);transition:width .25s ease}
+    .gw-layout{display:grid;grid-template-columns:240px 1fr;min-height:760px}.gw-steps{padding:1rem;border-right:1px solid var(--b);background:rgba(5,8,16,.38)}.gw-steps ol{margin:0;padding:0;display:grid;gap:.35rem;list-style:none}.gw-step-link{width:100%;padding:.68rem;display:grid;grid-template-columns:30px 1fr;gap:.62rem;border:1px solid transparent;border-radius:11px;background:transparent;color:#9eacbd;cursor:pointer;text-align:left}.gw-step-link:hover{background:rgba(124,58,237,.07)}.gw-step-link[aria-current=step]{border-color:rgba(124,58,237,.35);background:rgba(124,58,237,.12);color:#fff}.gw-step-link.done{color:#d1fae5}.gw-step-num{display:grid;place-items:center;width:28px;aspect-ratio:1;border:1px solid var(--b);border-radius:8px;font:900 .55rem var(--font-mono)}.gw-step-link strong,.gw-step-link small{display:block}.gw-step-link strong{font-size:.78rem}.gw-step-link small{color:#64748b;font-size:.65rem}
+    .gw-form{min-width:0;display:flex;flex-direction:column}.gw-panel{padding:clamp(1.3rem,3vw,2rem);flex:1}.gw-panel[hidden]{display:none}.gw-panel h2{max-width:850px;margin:0;font-size:clamp(2.1rem,4vw,3.5rem);line-height:1;letter-spacing:-.052em}.gw-intro{max-width:820px;color:#aeb9c8;line-height:1.68}
+    .gw-privacy{margin:1.1rem 0 1.3rem;padding:.9rem 1rem;border:1px solid rgba(251,191,36,.28);border-radius:13px;background:rgba(251,191,36,.07);color:#d9cfad;font-size:.8rem}.gw-privacy strong{color:#fde68a}
+    .gw-grid{margin-top:1.2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.gw-grid.one{grid-template-columns:1fr}.gw-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.full{grid-column:1/-1}
+    .gw-field label,.gw-field legend{display:block;margin-bottom:.42rem;color:#e2e8f0;font-size:.82rem;font-weight:850}.gw-field label span,.gw-field legend span{color:#64748b;font-weight:600}
+    .gw-field input[type=text],.gw-field input[type=number],.gw-field select,.gw-field textarea{width:100%;border:1px solid var(--b);border-radius:11px;background:rgba(5,8,16,.75);color:#f8fafc;font:inherit;font-size:.87rem}.gw-field input,.gw-field select{min-height:46px;padding:.7rem .78rem}.gw-field textarea{min-height:120px;padding:.78rem;resize:vertical;line-height:1.55}.gw-field [aria-invalid=true]{border-color:rgba(251,95,95,.75)!important;box-shadow:0 0 0 3px rgba(251,95,95,.1)}
+    .gw-help{margin:.38rem 0 0;color:#64748b;font-size:.7rem}.gw-set{margin:1.3rem 0 0;padding:0;border:0}.gw-set>legend{margin-bottom:.7rem;color:#f8fafc;font-size:.9rem;font-weight:900}
+    .gw-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.68rem}.gw-choice{position:relative}.gw-choice input{position:absolute;opacity:0}.gw-choice label{min-height:82px;padding:.78rem;display:flex;gap:.62rem;border:1px solid var(--b);border-radius:12px;background:rgba(5,8,16,.55);cursor:pointer}.gw-choice input:focus-visible+label{outline:3px solid rgba(6,182,212,.8);outline-offset:2px}.gw-choice input:checked+label{border-color:rgba(124,58,237,.55);background:rgba(124,58,237,.12)}.gw-check{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border:1px solid var(--bs);border-radius:7px;color:transparent;font-size:.7rem}.gw-choice input:checked+label .gw-check{background:#7c3aed;border-color:#7c3aed;color:#fff}.gw-choice strong,.gw-choice small{display:block}.gw-choice strong{font-size:.78rem}.gw-choice small{margin-top:.18rem;color:#718096;font-size:.67rem;line-height:1.35}
+    .gw-tag{display:inline-flex;margin-top:.35rem;padding:.2rem .38rem;border-radius:999px;font:900 .49rem var(--font-mono)}.tag-green{color:#86efac;background:rgba(34,197,94,.1)}.tag-yellow{color:#fde68a;background:rgba(251,191,36,.1)}.tag-red{color:#fecaca;background:rgba(251,95,95,.1)}
+    .gw-radio{display:flex;flex-wrap:wrap;gap:.55rem}.gw-radio label{margin:0;padding:.62rem .72rem;border:1px solid var(--b);border-radius:10px;background:rgba(5,8,16,.55);cursor:pointer;font-size:.76rem}.gw-radio input{position:absolute;opacity:0}.gw-radio input:checked+label{border-color:rgba(124,58,237,.55);background:rgba(124,58,237,.13)}
+    .gw-errors{margin:1rem 1rem 0;padding:.85rem 1rem;border:1px solid rgba(251,95,95,.35);border-radius:13px;background:rgba(251,95,95,.08);color:#fecaca}.gw-errors[hidden]{display:none}.gw-errors ul{margin:.5rem 0 0;padding-left:1.1rem;font-size:.8rem}
+    .gw-review{display:grid;gap:1rem}.gw-review-head{padding:1rem;display:flex;justify-content:space-between;gap:1rem;border:1px solid var(--b);border-radius:14px;background:rgba(5,8,16,.55)}.gw-badge{padding:.42rem .6rem;border-radius:999px;font:900 .58rem var(--font-mono)}.badge-green{color:#86efac;background:rgba(34,197,94,.1)}.badge-yellow{color:#fde68a;background:rgba(251,191,36,.1)}.badge-red{color:#fecaca;background:rgba(251,95,95,.1)}
+    .gw-analysis{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}.gw-analysis article,.gw-card{padding:.9rem;border:1px solid var(--b);border-radius:13px;background:rgba(5,8,16,.55)}.gw-analysis article.g{border-color:rgba(34,197,94,.25)}.gw-analysis article.y{border-color:rgba(251,191,36,.25)}.gw-analysis article.r{border-color:rgba(251,95,95,.25)}.gw-analysis ul{margin:.65rem 0 0;padding-left:1rem;color:#cbd5e1;font-size:.72rem}
+    .gw-review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}.gw-card.full{grid-column:1/-1}.gw-label{color:#64748b;font:900 .56rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase}.gw-card h3{margin:.45rem 0;font-size:.94rem}.gw-card p{margin:0;color:#b9c4d3;font-size:.78rem;line-height:1.55;white-space:pre-wrap}.gw-pills{display:flex;flex-wrap:wrap;gap:.35rem}.gw-pill{padding:.32rem .46rem;border:1px solid var(--b);border-radius:999px;color:#cbd5e1;font-size:.66rem}.gw-warnings{margin:.55rem 0 0;padding:0;display:grid;gap:.4rem;list-style:none}.gw-warnings li{padding:.58rem;border:1px solid rgba(251,191,36,.22);border-radius:9px;background:rgba(251,191,36,.06);color:#e4d9b5;font-size:.72rem}
+    .gw-exportbar{padding:1rem;display:flex;flex-wrap:wrap;gap:.55rem;border:1px solid rgba(124,58,237,.28);border-radius:13px;background:linear-gradient(90deg,rgba(124,58,237,.1),rgba(6,182,212,.05))}.gw-live{min-height:1.3rem;color:#86efac;font-size:.72rem}
+    @media(max-width:1050px){.gw-hero-grid,.gw-layout{grid-template-columns:1fr}.gw-steps{border-right:0;border-bottom:1px solid var(--b)}.gw-steps ol{grid-template-columns:repeat(4,1fr)}.gw-options,.gw-grid.three,.gw-analysis{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.gw-toolbar,.gw-footer{align-items:flex-start;flex-direction:column}.gw-steps ol,.gw-options,.gw-grid,.gw-grid.three,.gw-review-grid,.gw-analysis{grid-template-columns:1fr}.gw-footer .gw-actions{display:grid;width:100%;grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.gw-hero h1{font-size:clamp(2.8rem,15vw,4.5rem)}.gw-console li{grid-template-columns:30px 1fr}.gw-zone{grid-column:2;justify-self:start}.gw-footer .gw-actions{grid-template-columns:1fr}}
+    @media print{.announcement,.site-header,.gw-hero,.gw-toolbar,.gw-progress,.gw-steps,.gw-footer,.site-footer,.gw-exportbar,.gw-errors{display:none!important}.gw-section{padding:0}.gw-shell{border:0;box-shadow:none;background:#fff}.gw-layout{display:block;min-height:0}.gw-panel{display:none!important}.gw-panel[data-step-panel="7"]{display:block!important;color:#111}.gw-card,.gw-review-head,.gw-analysis article{break-inside:avoid;background:#fff!important;border-color:#aaa!important}.gw-card p,.gw-analysis li{color:#333!important}}
+  </style>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "New Guardrail Map Wizard",
+  "url": "https://funding-workflow-builder.vercel.app/guardrail-builder/new-map.html",
+  "description": "A seven-step privacy-first wizard for mapping AI-assisted funding workflow stages, data, actions, channels, authority, risks, and implementation outputs.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "creator": {
+    "@type": "Organization",
+    "name": "Moonshine Capital"
+  },
+  "featureList": [
+    "Seven-step workflow intake",
+    "Local browser draft saving",
+    "Green Yellow Red preliminary analysis",
+    "Human-review and authority mapping",
+    "Markdown and JSON export",
+    "Custom GPT prompt handoff"
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://funding-workflow-builder.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guardrail Builder",
+      "item": "https://funding-workflow-builder.vercel.app/guardrail-builder/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "New Guardrail Map Wizard",
+      "item": "https://funding-workflow-builder.vercel.app/guardrail-builder/new-map.html"
+    }
+  ]
+}</script>
+</head>
+<body class="gw-page">
+  <a class="skip-link" href="#wizard">Skip to wizard</a>
+
+  <div class="announcement" role="status">
+    <div class="container announcement__inner">
+      <span>AI should prepare the file—not quietly become the decision-maker.</span>
+      <span class="mini-zones" aria-label="Green, Yellow, and Red workflow zones">
+        <span class="mini-zone mini-zone--green">G</span>
+        <span class="mini-zone mini-zone--yellow">Y</span>
+        <span class="mini-zone mini-zone--red">R</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Funding Workflow Guardrail Builder home">
+        <span class="brand__mark" aria-hidden="true"><span class="brand__shield">◆</span><span class="brand__pulse"></span></span>
+        <span class="brand__text"><strong>Guardrail Builder</strong><small>Funding Workflow Control</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <span class="sr-only">Toggle navigation</span><span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation" data-nav>
+        <a href="../index.html">Home</a>
+        <a href="../start-here/getting-started.html">Getting Started</a>
+        <a href="../start-here/privacy-input-guide.html">Privacy Guide</a>
+        <a href="new-map.html" aria-current="page">New Guardrail Map</a>
+        <a class="button button--small button--primary" href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" target="_blank" rel="noopener noreferrer">Launch GPT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="gw-hero">
+      <div class="container gw-hero-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Guardrail builder / seven-step intake</p>
+          <h1>Map the Workflow. <span>Assign the Human Control.</span></h1>
+          <p>Build a structured, privacy-first description of your funding workflow. The wizard generates a preliminary Green, Yellow, and Red analysis, an implementation summary, and a copyable prompt for the Funding Workflow Guardrail Builder GPT.</p>
+          <div class="gw-meta"><span>Saves locally</span><span>No backend required</span><span>Redacted inputs only</span><span>JSON + Markdown export</span></div>
+        </div>
+        <aside class="gw-console" aria-label="Wizard process">
+          <div class="gw-console-bar"><span>CONTROL-MAP / INTAKE PIPELINE</span><b>HUMAN REVIEW ONLINE</b></div>
+          <ol>
+            <li><span>01</span><div><strong>Workflow + data</strong><small>Goal, stages, systems, and categories</small></div><span class="gw-zone z-g">PREPARE</span></li>
+            <li><span>02</span><div><strong>Actions + channels</strong><small>What AI and humans do, and where</small></div><span class="gw-zone z-y">CLASSIFY</span></li>
+            <li><span>03</span><div><strong>Roles + authority</strong><small>Reviewer, decision-maker, and override owner</small></div><span class="gw-zone z-y">ASSIGN</span></li>
+            <li><span>04</span><div><strong>Risks + outputs</strong><small>Triggers, stop rules, evidence, and deliverables</small></div><span class="gw-zone z-r">CONTROL</span></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <noscript><div class="container gw-errors">JavaScript is required for the interactive wizard, local draft saving, preliminary analysis, and exports.</div></noscript>
+
+    <section class="gw-section">
+      <div class="container">
+        <form class="gw-shell" id="wizard" novalidate>
+          <div class="gw-toolbar">
+            <div class="gw-status"><strong id="draftTitle">New guardrail map</strong><span id="draftStatus">No draft saved yet</span></div>
+            <div class="gw-actions">
+              <button class="gw-tool" type="button" id="saveTop">Save draft</button>
+              <button class="gw-tool" type="button" id="draftJson">Download JSON</button>
+              <button class="gw-tool" type="button" id="reset">Reset</button>
+            </div>
+          </div>
+
+          <div class="gw-progress">
+            <div class="gw-progress-head"><span id="progressLabel">Step 1 of 8</span><span id="progressPercent">13% complete</span></div>
+            <div class="gw-track"><div class="gw-value" id="progressValue"></div></div>
+          </div>
+
+          <div class="gw-layout">
+            <nav class="gw-steps" aria-label="Wizard steps"><ol id="stepNav"></ol></nav>
+
+            <div class="gw-form">
+              <div class="gw-errors" id="errors" role="alert" tabindex="-1" hidden><strong>Review these items:</strong><ul id="errorList"></ul></div>
+
+              <section class="gw-panel" data-step-panel="0">
+                <p class="eyebrow">Step 1 / Workflow stages</p>
+                <h2>Start With the Goal and Workflow Boundaries</h2>
+                <p class="gw-intro">Define what the workflow should accomplish, where it starts and ends, and which stages are in scope.</p>
+                <div class="gw-privacy"><strong>Do not paste a live applicant file.</strong> Use a high-level process description, field names, ranges, synthetic examples, and secure record references.</div>
+                <div class="gw-grid">
+                  <div class="gw-field"><label for="workflowName">Workflow name <span>(required)</span></label><input id="workflowName" name="workflowName" type="text" maxlength="100" placeholder="Missing-Document Review Router" required></div>
+                  <div class="gw-field"><label for="organizationRole">Organization role <span>(required)</span></label><select id="organizationRole" name="organizationRole" required><option value="">Select role</option><option>Funding broker</option><option>Funding agency</option><option>ISO or referral partner</option><option>Processor or operations team</option><option>Fintech provider</option><option>Creditor or authorized provider</option><option>CRM or automation consultant</option><option>Internal finance operations team</option><option>Other</option></select></div>
+                  <div class="gw-field full"><label for="workflowGoal">Workflow goal <span>(required, redacted)</span></label><textarea id="workflowGoal" name="workflowGoal" placeholder="Collect required documents, identify missing or conflicting information, and route the file to a processor before product matching." required></textarea></div>
+                  <div class="gw-field"><label for="workflowStart">Starts when</label><input id="workflowStart" name="workflowStart" type="text" placeholder="A lead submits a consented intake form"></div>
+                  <div class="gw-field"><label for="workflowEnd">Ends when</label><input id="workflowEnd" name="workflowEnd" type="text" placeholder="A qualified human approves the next route"></div>
+                </div>
+                <fieldset class="gw-set"><legend>Stages in scope <span>(select at least one)</span></legend><div class="gw-options" data-options="stages"></div></fieldset>
+              </section>
+
+              <section class="gw-panel" data-step-panel="1" hidden>
+                <p class="eyebrow">Step 2 / Data types</p>
+                <h2>Describe the Data Without Exposing the Record</h2>
+                <p class="gw-intro">Select categories, sensitivity, and evidence references—not exact applicant values.</p>
+                <div class="gw-privacy"><strong>Do not include</strong> passwords, keys, tokens, SSNs, full account numbers, identity documents, signatures, or complete live financial files.</div>
+                <fieldset class="gw-set"><legend>Data categories <span>(select at least one)</span></legend><div class="gw-options" data-options="data"></div></fieldset>
+                <div class="gw-grid">
+                  <div class="gw-field"><label for="evidenceStyle">Evidence reference style</label><select id="evidenceStyle" name="evidenceStyle"><option>Secure record IDs</option><option>Controlled document URLs</option><option>CRM record and field references</option><option>No evidence links yet</option></select></div>
+                  <div class="gw-field"><label for="dataSystem">System of record</label><input id="dataSystem" name="dataSystem" type="text" placeholder="HubSpot + secured Google Drive"></div>
+                  <div class="gw-field full"><label for="dataNotes">Data-handling notes</label><textarea id="dataNotes" name="dataNotes" placeholder="The AI receives ranges, statuses, confidence scores, and secure references—not full identity or account data."></textarea></div>
+                </div>
+              </section>
+
+              <section class="gw-panel" data-step-panel="2" hidden>
+                <p class="eyebrow">Step 3 / Actions</p>
+                <h2>Separate Preparation, Analysis, and Authority</h2>
+                <p class="gw-intro">Select what AI may prepare and what humans must review, decide, override, or authorize.</p>
+                <fieldset class="gw-set"><legend>AI actions <span>(select at least one)</span></legend><div class="gw-options" data-options="ai"></div></fieldset>
+                <fieldset class="gw-set"><legend>Human actions <span>(select at least one)</span></legend><div class="gw-options" data-options="human"></div></fieldset>
+                <div class="gw-grid one"><div class="gw-field"><label for="otherActions">Other actions <span>(redacted)</span></label><textarea id="otherActions" name="otherActions" placeholder="Describe other actions using generic role, field, and process language."></textarea></div></div>
+              </section>
+
+              <section class="gw-panel" data-step-panel="3" hidden>
+                <p class="eyebrow">Step 4 / Channels and systems</p>
+                <h2>Identify Where the Workflow Reads, Writes, and Communicates</h2>
+                <p class="gw-intro">Applicant-facing channels and external writes need consent, confirmation, retry, duplicate-prevention, and audit controls.</p>
+                <fieldset class="gw-set"><legend>Systems and channels <span>(select at least one)</span></legend><div class="gw-options" data-options="channels"></div></fieldset>
+                <div class="gw-grid">
+                  <div class="gw-field"><label for="primarySystem">Primary system of record <span>(required)</span></label><input id="primarySystem" name="primarySystem" type="text" placeholder="HubSpot" required></div>
+                  <div class="gw-field"><label for="orchestrator">Workflow orchestrator</label><input id="orchestrator" name="orchestrator" type="text" placeholder="n8n"></div>
+                </div>
+                <fieldset class="gw-set"><legend>External-write behavior <span>(required)</span></legend><div class="gw-radio" data-radios="externalWrite"></div></fieldset>
+                <div class="gw-grid one"><div class="gw-field"><label for="channelNotes">Consent, retry, and failure notes</label><textarea id="channelNotes" name="channelNotes" placeholder="SMS requires verified consent. Failed audit writes pause the workflow."></textarea></div></div>
+              </section>
+
+              <section class="gw-panel" data-step-panel="4" hidden>
+                <p class="eyebrow">Step 5 / Roles and authority</p>
+                <h2>Assign Review, Decision, Override, and Incident Authority</h2>
+                <p class="gw-intro">Review authority is not automatically decision authority. Document who may inspect, stop, decide, communicate, override, and restart.</p>
+                <fieldset class="gw-set"><legend>Roles involved <span>(select at least one)</span></legend><div class="gw-options" data-options="roles"></div></fieldset>
+                <div class="gw-grid three">
+                  <div class="gw-field"><label for="primaryReviewer">Primary reviewer <span>(required)</span></label><input id="primaryReviewer" name="primaryReviewer" type="text" placeholder="Processor" required></div>
+                  <div class="gw-field"><label for="decisionAuthority">Final decision authority <span>(required)</span></label><input id="decisionAuthority" name="decisionAuthority" type="text" placeholder="Authorized creditor representative" required></div>
+                  <div class="gw-field"><label for="overrideAuthority">Override authority</label><input id="overrideAuthority" name="overrideAuthority" type="text" placeholder="Operations lead + compliance reviewer"></div>
+                </div>
+                <fieldset class="gw-set"><legend>Separation of duties <span>(required)</span></legend><div class="gw-radio" data-radios="duties"></div></fieldset>
+                <div class="gw-grid">
+                  <div class="gw-field"><label for="escalationOwner">Escalation owner</label><input id="escalationOwner" name="escalationOwner" type="text" placeholder="Operations manager"></div>
+                  <div class="gw-field"><label for="incidentOwner">Incident owner</label><input id="incidentOwner" name="incidentOwner" type="text" placeholder="Workflow administrator"></div>
+                  <div class="gw-field full"><label for="authorityNotes">Authority notes</label><textarea id="authorityNotes" name="authorityNotes" placeholder="The broker may recommend categories but cannot issue a binding approval, denial, or final terms."></textarea></div>
+                </div>
+              </section>
+
+              <section class="gw-panel" data-step-panel="5" hidden>
+                <p class="eyebrow">Step 6 / Risk flags</p>
+                <h2>Define What Pauses, Escalates, or Stops the Workflow</h2>
+                <p class="gw-intro">Add uncertainty, evidence conflicts, sensitive categories, communication risks, authority failures, and technical failures.</p>
+                <fieldset class="gw-set"><legend>Known triggers</legend><div class="gw-options" data-options="risks"></div></fieldset>
+                <div class="gw-grid three">
+                  <div class="gw-field"><label for="confidence">Minimum confidence <span>(0–100)</span></label><input id="confidence" name="confidence" type="number" min="0" max="100" value="85"></div>
+                  <div class="gw-field"><label for="reviewSla">Human-review target</label><input id="reviewSla" name="reviewSla" type="text" placeholder="4 business hours"></div>
+                  <div class="gw-field"><label for="policyVersion">Policy or criteria version</label><input id="policyVersion" name="policyVersion" type="text" placeholder="Product Rules 2026-07"></div>
+                  <div class="gw-field"><label for="timeoutBehavior">Review timeout <span>(required)</span></label><select id="timeoutBehavior" name="timeoutBehavior" required><option value="">Select behavior</option><option>Keep blocked and escalate</option><option>Keep blocked and reassign</option><option>Pause and notify owner</option><option>Automatically approve and continue</option></select></div>
+                  <div class="gw-field"><label for="conflictBehavior">Conflicting evidence <span>(required)</span></label><select id="conflictBehavior" name="conflictBehavior" required><option value="">Select behavior</option><option>Stop and assign human review</option><option>Request clarification and stay blocked</option><option>Use newest source automatically</option><option>Use model recommendation automatically</option></select></div>
+                  <div class="gw-field"><label for="auditBehavior">Audit failure <span>(required)</span></label><select id="auditBehavior" name="auditBehavior" required><option value="">Select behavior</option><option>Stop and create incident</option><option>Retry and keep blocked</option><option>Continue without audit record</option></select></div>
+                  <div class="gw-field full"><label for="riskNotes">Other risk and escalation notes</label><textarea id="riskNotes" name="riskNotes" placeholder="Describe condition, evidence, owner, deadline, allowed action, prohibited action, and stop rule."></textarea></div>
+                </div>
+              </section>
+
+              <section class="gw-panel" data-step-panel="6" hidden>
+                <p class="eyebrow">Step 7 / Desired outputs</p>
+                <h2>Choose the Deliverables Needed to Implement the Controls</h2>
+                <p class="gw-intro">Select the maps, schemas, routing specifications, and tests the GPT should generate.</p>
+                <fieldset class="gw-set"><legend>Requested outputs <span>(select at least one)</span></legend><div class="gw-options" data-options="outputs"></div></fieldset>
+                <fieldset class="gw-set"><legend>Preferred formats <span>(select at least one)</span></legend><div class="gw-options" data-options="formats"></div></fieldset>
+                <div class="gw-grid">
+                  <div class="gw-field"><label for="detailLevel">Detail level</label><select id="detailLevel" name="detailLevel"><option>Implementation-ready</option><option>Executive summary</option><option>Detailed technical specification</option><option>Quick first pass</option></select></div>
+                  <div class="gw-field"><label for="targetPlatform">Primary target platform</label><input id="targetPlatform" name="targetPlatform" type="text" placeholder="HubSpot + n8n + Google Drive"></div>
+                  <div class="gw-field full"><label for="outputNotes">Additional output instructions</label><textarea id="outputNotes" name="outputNotes" placeholder="Keep external writes disabled until a human confirms the target and payload."></textarea></div>
+                </div>
+              </section>
+
+              <section class="gw-panel" data-step-panel="7" hidden>
+                <p class="eyebrow">Step 8 / Review and generate</p>
+                <h2>Review the Structured Intake Before Handoff</h2>
+                <p class="gw-intro">This is a preliminary operational analysis—not a legal, underwriting, compliance, or final decision.</p>
+                <div class="gw-review">
+                  <div class="gw-review-head"><div><strong id="reviewTitle">Untitled workflow</strong><p id="reviewSubtitle">Complete the intake to generate the summary.</p></div><span class="gw-badge badge-yellow" id="readiness">REVIEW NEEDED</span></div>
+                  <div class="gw-analysis"><article class="g"><span class="gw-tag tag-green">GREEN / AUTOMATE</span><ul id="greenList"></ul></article><article class="y"><span class="gw-tag tag-yellow">YELLOW / REVIEW</span><ul id="yellowList"></ul></article><article class="r"><span class="gw-tag tag-red">RED / STOP</span><ul id="redList"></ul></article></div>
+                  <div class="gw-review-grid">
+                    <article class="gw-card"><span class="gw-label">Workflow scope</span><h3>Goal and stages</h3><p id="reviewScope"></p></article>
+                    <article class="gw-card"><span class="gw-label">Data</span><h3>Categories</h3><div class="gw-pills" id="reviewData"></div></article>
+                    <article class="gw-card"><span class="gw-label">Channels</span><h3>Systems and writes</h3><div class="gw-pills" id="reviewChannels"></div></article>
+                    <article class="gw-card"><span class="gw-label">Authority</span><h3>Review and decision roles</h3><p id="reviewAuthority"></p></article>
+                    <article class="gw-card"><span class="gw-label">Risk controls</span><h3>Triggers and thresholds</h3><div class="gw-pills" id="reviewRisks"></div></article>
+                    <article class="gw-card"><span class="gw-label">Outputs</span><h3>Requested deliverables</h3><div class="gw-pills" id="reviewOutputs"></div></article>
+                    <article class="gw-card full"><span class="gw-label">Control warnings</span><h3>Resolve before implementation</h3><ul class="gw-warnings" id="warnings"></ul></article>
+                  </div>
+                  <div class="gw-exportbar">
+                    <button class="gw-export gw-primary" type="button" id="openGpt">Copy prompt + open GPT ↗</button>
+                    <button class="gw-export" type="button" id="copyPrompt">Copy prompt</button>
+                    <button class="gw-export" type="button" id="downloadMd">Download Markdown</button>
+                    <button class="gw-export" type="button" id="downloadJson">Download JSON</button>
+                    <button class="gw-export" type="button" id="print">Print / PDF</button>
+                  </div>
+                  <p class="gw-live" id="live" aria-live="polite"></p>
+                </div>
+              </section>
+
+              <div class="gw-errors" id="errors" role="alert" tabindex="-1" hidden><strong>Review these items:</strong><ul id="errorList"></ul></div>
+
+              <div class="gw-footer">
+                <div class="gw-actions"><button class="gw-nav" type="button" id="prev" disabled>← Previous</button><button class="gw-nav" type="button" id="saveBottom">Save draft</button></div>
+                <div class="gw-actions"><button class="gw-nav" type="button" id="review">Review summary</button><button class="gw-nav gw-primary" type="button" id="next">Next step →</button></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div><a class="brand brand--footer" href="../index.html"><span class="brand__mark" aria-hidden="true"><span class="brand__shield">◆</span></span><span class="brand__text"><strong>Funding Workflow Guardrail Builder</strong><small>by Moonshine Capital</small></span></a><p>Operational controls for AI-assisted funding workflows.</p></div>
+      <nav aria-label="Footer navigation"><a href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" target="_blank" rel="noopener noreferrer">Launch GPT</a><a href="https://docs.google.com/document/d/14ruSLY4yOFT50nSbCNeuB5c_H1O-zrWLNM1qHBz7yns/copy" target="_blank" rel="noopener noreferrer">Human Review Map</a><a href="https://drive.google.com/drive/folders/1jkd-9yCnccVC7Jc21YTVgu8h1aElrgDB" target="_blank" rel="noopener noreferrer">Automation Pack</a><a href="../embed.html">Embed Version</a></nav>
+    </div>
+    <div class="container site-footer__notice">This wizard provides educational and operational workflow guidance. It does not approve or deny funding, establish binding terms, declare fraud, replace underwriting or creditor authority, provide legal or compliance advice, or guarantee funding or regulatory outcomes. Use redacted or synthetic data.</div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+  <script>
+    (() => {
+      "use strict";
+      const GPT_URL="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder",KEY="fundingWorkflowGuardrailWizard.v1",TOTAL=8;
+      const config={
+        steps:[["Workflow stages","Goal and scope"],["Data types","Categories and sensitivity"],["Actions","AI and human work"],["Channels","Systems and writes"],["Roles","Review and authority"],["Risk flags","Triggers and thresholds"],["Outputs","Deliverables and formats"],["Review","Analyze and export"]],
+        stages:["Lead intake and consent","Document collection","Document quality review","Analysis and summarization","Eligibility or product-fit review","Applicant communications","Decision or terms","Closing or disbursement","Monitoring and overrides"],
+        data:[
+          ["Business identity and operating details","Business name, industry, time in business, requested amount range","standard"],
+          ["Contact and communication consent","Email, phone, channel consent, opt-out, and source","yellow"],
+          ["Financial summaries and ranges","Revenue ranges, deposit totals, cash-flow observations","yellow"],
+          ["Document status and extraction results","Completeness, readability, confidence, and secure references","yellow"],
+          ["Identity-verification status","Verification result, mismatch status, restricted evidence","red"],
+          ["Communication history and drafts","Messages, summaries, disclosures, complaints, consent history","yellow"],
+          ["Provider criteria and product rules","Criteria versions, effective dates, categories, and source links","standard"],
+          ["Review decisions and authority records","Reviewer, decision, rationale, scope, and conditions","yellow"],
+          ["Audit, override, and incident metadata","Workflow ID, trigger, version, timestamp, and status","standard"]
+        ],
+        ai:[
+          ["Create or update approved CRM fields","Normalize verified inputs under fixed rules","green"],
+          ["Name, classify, and organize files","Administrative document preparation","green"],
+          ["Detect missing fields or documents","Compare against approved completeness rules","green"],
+          ["Draft or send approved neutral reminders","Verified consent, approved templates, and limits","green"],
+          ["Summarize documents, calls, or notes","Human verifies source evidence","yellow"],
+          ["Extract financial or document fields","Confidence threshold and source-page review","yellow"],
+          ["Compare provider or product criteria","Current sourced criteria and exposed assumptions","yellow"],
+          ["Score priority, readiness, or product fit","Decision support only","yellow"],
+          ["Flag anomalies or conflicting evidence","Describe evidence without misconduct conclusions","yellow"],
+          ["Draft high-impact applicant communications","Requires authorized approval before sending","yellow"],
+          ["Issue or communicate approval or denial","Must stop and route to authorized human","red"],
+          ["Set or change final pricing, repayment, or terms","Binding terms require human authority","red"],
+          ["Make a fraud or misrepresentation conclusion","AI may flag evidence, not issue the conclusion","red"],
+          ["Resolve a complaint, dispute, or adverse-action matter","Requires authorized review","red"],
+          ["Authorize closing or disbursement","Must remain under authorized human authority","red"]
+        ],
+        human:["Review source evidence","Resolve missing or conflicting information","Approve high-impact drafts before sending","Make or communicate authorized decisions","Approve and document overrides","Pause, investigate, and restart after incidents"],
+        channels:[
+          ["Form or intake page","Tally, Typeform, website form, or portal","standard"],
+          ["CRM","HubSpot, Salesforce, GoHighLevel, or system of record","yellow"],
+          ["Email","Applicant, reviewer, or internal notifications","yellow"],
+          ["SMS or messaging","Consent, opt-out, approved templates, and limits","yellow"],
+          ["Phone or voice agent","Call summaries, disclosures, transfers, and recording","yellow"],
+          ["Client or applicant portal","Uploads, statuses, requests, acknowledgments","yellow"],
+          ["Google Drive or document storage","Secured document storage and evidence links","yellow"],
+          ["Notion or Airtable","Review queues, logs, projects, and policies","yellow"],
+          ["Google Sheets or CSV","Exports, reports, queue imports, and backups","yellow"],
+          ["n8n","Branches, wait states, callbacks, approvals, and audits","yellow"],
+          ["Zapier or Make","Triggers, filters, actions, retries, and approval gates","yellow"],
+          ["API or webhooks","Inbound payloads, outbound writes, signatures, idempotency","yellow"]
+        ],
+        roles:["Intake specialist","Processor","Funding broker","Operations lead","Compliance or legal reviewer","Underwriter or authorized creditor representative","Workflow administrator","Security or incident owner","Quality or audit reviewer"],
+        risks:[
+          ["Missing, unclear, or expired consent","Stop outreach or data use until resolved","red"],
+          ["Extraction or model confidence below threshold","Route to source-evidence review","yellow"],
+          ["Material conflict between sources","Stop downstream routing until resolved","yellow"],
+          ["Criteria, policy, or prompt version is stale or unknown","Require current source and effective date","yellow"],
+          ["Identity-verification conflict or restricted evidence","Restrict access and assign authorized review","red"],
+          ["Approval, denial, fraud, or binding-terms language detected","Block send and require authorized review","red"],
+          ["Complaint, dispute, or adverse-action matter","Pause automation and route to approved owner","red"],
+          ["Material pricing, repayment, or terms changed","Require fresh approval and version comparison","red"],
+          ["Audit, evidence, or override write failed","Do not continue without a traceable record","red"],
+          ["External API, webhook, or connected-system failure","Retry safely and prevent duplicates","yellow"],
+          ["Sensitive data or credential exposure","Contain, rotate, notify, correct, and retest","red"],
+          ["Prompt injection or untrusted document instructions","Treat document text as data, not authority","red"]
+        ],
+        outputs:["Complete guardrail map","Green, Yellow, and Red task classification","Eight human checkpoints map","Reviewer and authority role matrix","Escalation rules","Audit-log and override-log schemas","Forbidden-actions policy","40-point pre-launch QA score","Human review queue schema","CRM routing specification","n8n routing draft","Notion or Airtable implementation schema","Synthetic workflow test cases","Prioritized implementation checklist"],
+        formats:["Markdown","JSON","YAML","CSV","Tables","Pseudocode"],
+        externalWrite:["No external writes","Draft or preview only","Write only after explicit human confirmation","Autonomous external writes"],
+        duties:["Separate people or roles review and decide","The same person reviews and decides","Not yet defined"]
+      };
+
+      const form=document.getElementById("wizard"),panels=[...document.querySelectorAll("[data-step-panel]")],nav=document.getElementById("stepNav");
+      let step=0,visited=0,done=new Set();
+
+      const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+      const slug=s=>(String(s||"guardrail-map").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80)||"guardrail-map");
+      const val=n=>String(form.elements.namedItem(n)?.value||"").trim();
+      const checks=n=>[...form.querySelectorAll(`input[name="${n}"]:checked`)].map(i=>i.value);
+      const radio=n=>form.querySelector(`input[name="${n}"]:checked`)?.value||"";
+      const message=t=>{document.getElementById("live").textContent=t;clearTimeout(message.t);message.t=setTimeout(()=>document.getElementById("live").textContent="",3500)};
+
+      function choiceHtml(name,item,index){
+        const a=Array.isArray(item)?item:[item,"","standard"],id=`${name}-${index}`,risk=a[2],tag=risk==="green"?["GREEN","tag-green"]:risk==="red"?["RED","tag-red"]:risk==="yellow"?["REVIEW","tag-yellow"]:null;
+        return `<div class="gw-choice"><input id="${id}" name="${name}" type="checkbox" value="${esc(a[0])}" data-risk="${esc(risk)}"><label for="${id}"><span class="gw-check">✓</span><span><strong>${esc(a[0])}</strong>${a[1]?`<small>${esc(a[1])}</small>`:""}${tag?`<span class="gw-tag ${tag[1]}">${tag[0]}</span>`:""}</span></label></div>`;
+      }
+      function buildOptions(){
+        ["stages","data","ai","human","channels","roles","risks","outputs","formats"].forEach(name=>{
+          document.querySelector(`[data-options="${name}"]`).innerHTML=config[name].map((x,i)=>choiceHtml(name,x,i)).join("");
+        });
+        document.querySelector('[data-radios="externalWrite"]').innerHTML=config.externalWrite.map((x,i)=>`<span><input id="write-${i}" name="externalWrite" type="radio" value="${esc(x)}"><label for="write-${i}">${esc(x)}</label></span>`).join("");
+        document.querySelector('[data-radios="duties"]').innerHTML=config.duties.map((x,i)=>`<span><input id="duties-${i}" name="duties" type="radio" value="${esc(x)}"><label for="duties-${i}">${esc(x)}</label></span>`).join("");
+        nav.innerHTML=config.steps.map((x,i)=>`<li><button class="gw-step-link" type="button" data-step="${i}"><span class="gw-step-num">${String(i+1).padStart(2,"0")}</span><span><strong>${x[0]}</strong><small>${x[1]}</small></span></button></li>`).join("");
+      }
+
+      function state(){
+        const meta=n=>[...form.querySelectorAll(`input[name="${n}"]:checked`)].map(i=>({label:i.value,risk:i.dataset.risk||"standard"}));
+        return {
+          version:1,savedAt:new Date().toISOString(),
+          workflow:{name:val("workflowName"),organizationRole:val("organizationRole"),goal:val("workflowGoal"),startsWhen:val("workflowStart"),endsWhen:val("workflowEnd"),stages:checks("stages")},
+          data:{categories:checks("data"),metadata:meta("data"),evidenceStyle:val("evidenceStyle"),systemOfRecord:val("dataSystem"),notes:val("dataNotes")},
+          actions:{ai:checks("ai"),aiMetadata:meta("ai"),human:checks("human"),other:val("otherActions")},
+          channels:{selected:checks("channels"),metadata:meta("channels"),primarySystem:val("primarySystem"),orchestrator:val("orchestrator"),externalWrite:radio("externalWrite"),notes:val("channelNotes")},
+          roles:{selected:checks("roles"),primaryReviewer:val("primaryReviewer"),decisionAuthority:val("decisionAuthority"),overrideAuthority:val("overrideAuthority"),duties:radio("duties"),escalationOwner:val("escalationOwner"),incidentOwner:val("incidentOwner"),notes:val("authorityNotes")},
+          risks:{flags:checks("risks"),metadata:meta("risks"),confidence:val("confidence"),reviewSla:val("reviewSla"),policyVersion:val("policyVersion"),timeout:val("timeoutBehavior"),conflict:val("conflictBehavior"),audit:val("auditBehavior"),notes:val("riskNotes")},
+          outputs:{requested:checks("outputs"),formats:checks("formats"),detailLevel:val("detailLevel"),targetPlatform:val("targetPlatform"),notes:val("outputNotes")}
+        };
+      }
+
+      function analysis(s){
+        const green=[],yellow=[],red=[];
+        s.actions.aiMetadata.forEach(x=>(x.risk==="green"?green:x.risk==="red"?red:yellow).push(x.label));
+        s.data.metadata.forEach(x=>{if(x.risk==="yellow")yellow.push(`Sensitive data: ${x.label}`);if(x.risk==="red")red.push(`Restricted-data control: ${x.label}`)});
+        s.channels.metadata.forEach(x=>{if(x.risk==="yellow")yellow.push(`Connected channel control: ${x.label}`)});
+        s.risks.metadata.forEach(x=>(x.risk==="red"?red:yellow).push(`Trigger: ${x.label}`));
+        if(s.channels.externalWrite==="Autonomous external writes")red.push("Autonomous external writes selected");
+        const warnings=[];
+        if(red.length)warnings.push("Red controls are present. Stop autonomous execution and route to an authorized human.");
+        if(!s.roles.decisionAuthority)warnings.push("Final decision authority is not defined.");
+        if(s.roles.duties==="The same person reviews and decides")warnings.push("Review and final decision are assigned to the same person. Document why and add backup review for high-impact actions.");
+        if(s.roles.duties==="Not yet defined")warnings.push("Separation of duties is not defined.");
+        if(s.channels.externalWrite==="Autonomous external writes")warnings.push("Disable autonomous external writes until the target, payload, authority, retry behavior, and audit record are confirmed.");
+        if(s.risks.timeout==="Automatically approve and continue")warnings.push("Timeout-based auto-approval is unsafe. Keep the item blocked, reassign it, or escalate it.");
+        if(/automatically/.test(s.risks.conflict))warnings.push("Conflicting evidence should remain blocked until a qualified human resolves the source conflict.");
+        if(s.risks.audit==="Continue without audit record")warnings.push("Continuing after an audit failure removes traceability. Keep the workflow blocked or create an incident.");
+        if(s.actions.aiMetadata.some(x=>x.risk==="red"))warnings.push("Red actions were selected as AI actions. Convert the AI role to preparation, context gathering, or routing only.");
+        if(s.channels.selected.includes("SMS or messaging")&&!s.risks.flags.some(x=>x.includes("consent")))warnings.push("SMS is in scope. Add a missing or expired consent trigger and opt-out behavior.");
+        if(!s.risks.policyVersion)warnings.push("No policy or criteria version is recorded.");
+        if(!s.risks.reviewSla)warnings.push("No human-review target and escalation deadline is defined.");
+        if(!warnings.length)warnings.push("No obvious control conflict was detected. Human verification is still required.");
+        return {green:[...new Set(green)],yellow:[...new Set(yellow)],red:[...new Set(red)],warnings,readiness:red.length?["RED CONTROLS REQUIRED","red"]:yellow.length?["HUMAN REVIEW REQUIRED","yellow"]:["GREEN CANDIDATE","green"]};
+      }
+
+      function validate(i,focus=true){
+        const msgs=[],bad=[],req=(n,l)=>{const f=form.elements.namedItem(n);if(!f||!String(f.value).trim()){msgs.push(`${l} is required.`);if(f)bad.push(f)}},one=(n,l)=>{if(!form.querySelector(`input[name="${n}"]:checked`)){msgs.push(`Select at least one ${l}.`);const f=form.querySelector(`input[name="${n}"]`);if(f)bad.push(f)}},rad=(n,l)=>{if(!radio(n)){msgs.push(`Select ${l}.`);const f=form.querySelector(`input[name="${n}"]`);if(f)bad.push(f)}};
+        if(i===0){req("workflowName","Workflow name");req("organizationRole","Organization role");req("workflowGoal","Workflow goal");one("stages","workflow stage")}
+        if(i===1)one("data","data category");
+        if(i===2){one("ai","AI action");one("human","human action")}
+        if(i===3){one("channels","system or channel");req("primarySystem","Primary system of record");rad("externalWrite","external-write behavior")}
+        if(i===4){one("roles","role");req("primaryReviewer","Primary reviewer");req("decisionAuthority","Final decision authority");rad("duties","separation-of-duties model")}
+        if(i===5){req("timeoutBehavior","Review timeout behavior");req("conflictBehavior","Conflicting-evidence behavior");req("auditBehavior","Audit-failure behavior");const c=Number(val("confidence"));if(!Number.isFinite(c)||c<0||c>100){msgs.push("Confidence must be between 0 and 100.");bad.push(form.elements.namedItem("confidence"))}}
+        if(i===6){one("outputs","requested output");one("formats","preferred format")}
+        panels[i].querySelectorAll("[aria-invalid=true]").forEach(x=>x.removeAttribute("aria-invalid"));bad.forEach(x=>x?.setAttribute("aria-invalid","true"));
+        const box=document.getElementById("errors");document.getElementById("errorList").innerHTML=msgs.map(x=>`<li>${esc(x)}</li>`).join("");box.hidden=!msgs.length;if(msgs.length&&focus)box.focus();if(!msgs.length)done.add(i);return !msgs.length;
+      }
+      function validateAll(){for(let i=0;i<7;i++)if(!validate(i,false)){show(i);validate(i,true);return false}return true}
+
+      function show(i,scroll=true){
+        step=Math.max(0,Math.min(i,7));visited=Math.max(visited,step);panels.forEach((p,n)=>p.hidden=n!==step);
+        [...nav.querySelectorAll("button")].forEach((b,n)=>{b.toggleAttribute("aria-current",n===step);b.classList.toggle("done",done.has(n)||n<step)});
+        const pct=Math.round((step+1)/TOTAL*100);document.getElementById("progressLabel").textContent=`Step ${step+1} of ${TOTAL}`;document.getElementById("progressPercent").textContent=`${pct}% complete`;document.getElementById("progressValue").style.width=`${pct}%`;document.getElementById("prev").disabled=step===0;document.getElementById("next").hidden=step===7;document.getElementById("review").hidden=step===7;if(step===7)render();if(scroll)form.scrollIntoView({behavior:"smooth",block:"start"});
+      }
+
+      function save(announce=true){const s=state();try{localStorage.setItem(KEY,JSON.stringify(s));document.getElementById("draftTitle").textContent=s.workflow.name||"New guardrail map";document.getElementById("draftStatus").textContent=`Saved locally at ${new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"})}`;if(announce)message("Draft saved in this browser.")}catch(e){document.getElementById("draftStatus").textContent="Local saving unavailable"}}
+      function restore(){try{const raw=localStorage.getItem(KEY);if(!raw)return;const s=JSON.parse(raw),set=(n,v)=>{const f=form.elements.namedItem(n);if(f&&typeof v==="string")f.value=v},setC=(n,a=[])=>{const z=new Set(a);form.querySelectorAll(`input[name="${n}"]`).forEach(x=>x.checked=z.has(x.value))},setR=(n,v)=>form.querySelectorAll(`input[name="${n}"]`).forEach(x=>x.checked=x.value===v);
+        set("workflowName",s.workflow?.name||"");set("organizationRole",s.workflow?.organizationRole||"");set("workflowGoal",s.workflow?.goal||"");set("workflowStart",s.workflow?.startsWhen||"");set("workflowEnd",s.workflow?.endsWhen||"");setC("stages",s.workflow?.stages);
+        setC("data",s.data?.categories);set("evidenceStyle",s.data?.evidenceStyle||"Secure record IDs");set("dataSystem",s.data?.systemOfRecord||"");set("dataNotes",s.data?.notes||"");
+        setC("ai",s.actions?.ai);setC("human",s.actions?.human);set("otherActions",s.actions?.other||"");
+        setC("channels",s.channels?.selected);set("primarySystem",s.channels?.primarySystem||"");set("orchestrator",s.channels?.orchestrator||"");setR("externalWrite",s.channels?.externalWrite);set("channelNotes",s.channels?.notes||"");
+        setC("roles",s.roles?.selected);set("primaryReviewer",s.roles?.primaryReviewer||"");set("decisionAuthority",s.roles?.decisionAuthority||"");set("overrideAuthority",s.roles?.overrideAuthority||"");setR("duties",s.roles?.duties);set("escalationOwner",s.roles?.escalationOwner||"");set("incidentOwner",s.roles?.incidentOwner||"");set("authorityNotes",s.roles?.notes||"");
+        setC("risks",s.risks?.flags);set("confidence",s.risks?.confidence||"85");set("reviewSla",s.risks?.reviewSla||"");set("policyVersion",s.risks?.policyVersion||"");set("timeoutBehavior",s.risks?.timeout||"");set("conflictBehavior",s.risks?.conflict||"");set("auditBehavior",s.risks?.audit||"");set("riskNotes",s.risks?.notes||"");
+        setC("outputs",s.outputs?.requested);setC("formats",s.outputs?.formats);set("detailLevel",s.outputs?.detailLevel||"Implementation-ready");set("targetPlatform",s.outputs?.targetPlatform||"");set("outputNotes",s.outputs?.notes||"");
+        document.getElementById("draftTitle").textContent=s.workflow?.name||"Restored guardrail map";document.getElementById("draftStatus").textContent=`Restored from ${new Date(s.savedAt).toLocaleString()}`;
+      }catch(e){document.getElementById("draftStatus").textContent="Saved draft could not be restored"}}
+
+      const list=(a,f)=>a.length?a.map(x=>`<li>${esc(x)}</li>`).join(""):`<li>${esc(f)}</li>`,pills=(a,f)=>a.length?a.map(x=>`<span class="gw-pill">${esc(x)}</span>`).join(""):`<span class="gw-pill">${esc(f)}</span>`;
+      function render(){const s=state(),a=analysis(s);document.getElementById("reviewTitle").textContent=s.workflow.name||"Untitled workflow";document.getElementById("reviewSubtitle").textContent=`${s.workflow.organizationRole||"Role not set"} · ${s.outputs.detailLevel}`;const b=document.getElementById("readiness");b.textContent=a.readiness[0];b.className=`gw-badge badge-${a.readiness[1]}`;
+        document.getElementById("greenList").innerHTML=list(a.green,"No Green actions selected.");document.getElementById("yellowList").innerHTML=list(a.yellow,"No Yellow actions selected.");document.getElementById("redList").innerHTML=list(a.red,"No Red actions selected.");
+        document.getElementById("reviewScope").textContent=`Goal: ${s.workflow.goal||"Not provided"}\nStarts: ${s.workflow.startsWhen||"Not provided"}\nEnds: ${s.workflow.endsWhen||"Not provided"}\nStages: ${s.workflow.stages.join(", ")||"Not provided"}`;
+        document.getElementById("reviewData").innerHTML=pills(s.data.categories,"Not provided");document.getElementById("reviewChannels").innerHTML=pills([...s.channels.selected,s.channels.externalWrite&&`Write: ${s.channels.externalWrite}`].filter(Boolean),"Not provided");
+        document.getElementById("reviewAuthority").textContent=`Reviewer: ${s.roles.primaryReviewer||"Not provided"}\nDecision authority: ${s.roles.decisionAuthority||"Not provided"}\nOverride authority: ${s.roles.overrideAuthority||"Not provided"}\nDuties: ${s.roles.duties||"Not provided"}`;
+        document.getElementById("reviewRisks").innerHTML=pills([...s.risks.flags,s.risks.confidence&&`Confidence: ${s.risks.confidence}`,s.risks.reviewSla&&`Review target: ${s.risks.reviewSla}`,s.risks.policyVersion&&`Policy: ${s.risks.policyVersion}`].filter(Boolean),"No risk flags selected");
+        document.getElementById("reviewOutputs").innerHTML=pills([...s.outputs.requested,...s.outputs.formats.map(x=>`Format: ${x}`)],"Not provided");document.getElementById("warnings").innerHTML=a.warnings.map(x=>`<li>${esc(x)}</li>`).join("");return{s,a}
+      }
+
+      const bullets=a=>a.length?a.map(x=>`- ${x}`).join("\n"):"- Not provided";
+      function prompt(s,a){return `Build a complete human-in-the-loop Guardrail Map from this redacted intake.
+
+BOUNDARIES
+- Operational guidance only.
+- Do not approve or deny funding.
+- Do not establish binding terms.
+- Do not declare fraud.
+- Do not replace underwriting, creditor authority, legal review, or compliance judgment.
+- Label assumptions and unresolved questions.
+- Do not request SSNs, full bank-account numbers, credentials, tokens, or identity documents.
+
+WORKFLOW
+Name: ${s.workflow.name||"Not provided"}
+Organization role: ${s.workflow.organizationRole||"Not provided"}
+Goal: ${s.workflow.goal||"Not provided"}
+Starts: ${s.workflow.startsWhen||"Not provided"}
+Ends: ${s.workflow.endsWhen||"Not provided"}
+Stages:
+${bullets(s.workflow.stages)}
+
+DATA
+${bullets(s.data.categories)}
+Evidence style: ${s.data.evidenceStyle}
+System of record: ${s.data.systemOfRecord||"Not provided"}
+Notes: ${s.data.notes||"Not provided"}
+
+AI ACTIONS
+${bullets(s.actions.ai)}
+
+HUMAN ACTIONS
+${bullets(s.actions.human)}
+Other: ${s.actions.other||"None"}
+
+CHANNELS
+${bullets(s.channels.selected)}
+Primary system: ${s.channels.primarySystem||"Not provided"}
+Orchestrator: ${s.channels.orchestrator||"Not provided"}
+External writes: ${s.channels.externalWrite||"Not provided"}
+Notes: ${s.channels.notes||"Not provided"}
+
+ROLES AND AUTHORITY
+${bullets(s.roles.selected)}
+Primary reviewer: ${s.roles.primaryReviewer||"Not provided"}
+Decision authority: ${s.roles.decisionAuthority||"Not provided"}
+Override authority: ${s.roles.overrideAuthority||"Not provided"}
+Separation of duties: ${s.roles.duties||"Not provided"}
+Escalation owner: ${s.roles.escalationOwner||"Not provided"}
+Incident owner: ${s.roles.incidentOwner||"Not provided"}
+Notes: ${s.roles.notes||"Not provided"}
+
+RISK CONDITIONS
+${bullets(s.risks.flags)}
+Confidence threshold: ${s.risks.confidence||"Not provided"}
+Review target: ${s.risks.reviewSla||"Not provided"}
+Policy version: ${s.risks.policyVersion||"Not provided"}
+Timeout behavior: ${s.risks.timeout||"Not provided"}
+Conflict behavior: ${s.risks.conflict||"Not provided"}
+Audit failure: ${s.risks.audit||"Not provided"}
+Notes: ${s.risks.notes||"Not provided"}
+
+PRELIMINARY ANALYSIS
+Green:
+${bullets(a.green)}
+Yellow:
+${bullets(a.yellow)}
+Red:
+${bullets(a.red)}
+Warnings:
+${bullets(a.warnings)}
+
+REQUESTED OUTPUTS
+${bullets(s.outputs.requested)}
+Formats:
+${bullets(s.outputs.formats)}
+Detail: ${s.outputs.detailLevel}
+Target platform: ${s.outputs.targetPlatform||"Not provided"}
+Notes: ${s.outputs.notes||"None"}
+
+RETURN
+1. Direct summary
+2. Assumptions and unresolved questions
+3. Workflow-stage map
+4. Green/Yellow/Red classification table
+5. Eight human checkpoints
+6. Human-review triggers
+7. Authority matrix
+8. Escalation rules
+9. Evidence requirements
+10. Audit and override fields
+11. Forbidden actions
+12. Failure, retry, timeout, and incident controls
+13. Requested implementation schemas
+14. Synthetic tests
+15. Prioritized implementation checklist
+16. AI reality check
+17. Privacy and non-guarantee notice`; }
+      function markdown(s,a){return `# ${s.workflow.name||"New Guardrail Map"}
+
+## Workflow
+- Organization role: ${s.workflow.organizationRole||"Not provided"}
+- Starts: ${s.workflow.startsWhen||"Not provided"}
+- Ends: ${s.workflow.endsWhen||"Not provided"}
+
+${s.workflow.goal||"No goal provided"}
+
+### Stages
+${bullets(s.workflow.stages)}
+
+## Data
+${bullets(s.data.categories)}
+
+## AI Actions
+${bullets(s.actions.ai)}
+
+## Human Actions
+${bullets(s.actions.human)}
+
+## Channels
+${bullets(s.channels.selected)}
+- Primary system: ${s.channels.primarySystem||"Not provided"}
+- External writes: ${s.channels.externalWrite||"Not provided"}
+
+## Roles and Authority
+${bullets(s.roles.selected)}
+- Primary reviewer: ${s.roles.primaryReviewer||"Not provided"}
+- Decision authority: ${s.roles.decisionAuthority||"Not provided"}
+- Override authority: ${s.roles.overrideAuthority||"Not provided"}
+- Separation of duties: ${s.roles.duties||"Not provided"}
+
+## Risks
+${bullets(s.risks.flags)}
+- Confidence: ${s.risks.confidence||"Not provided"}
+- Review target: ${s.risks.reviewSla||"Not provided"}
+- Policy version: ${s.risks.policyVersion||"Not provided"}
+
+## Preliminary Analysis
+### Green
+${bullets(a.green)}
+### Yellow
+${bullets(a.yellow)}
+### Red
+${bullets(a.red)}
+
+## Warnings
+${bullets(a.warnings)}
+
+## Outputs
+${bullets(s.outputs.requested)}
+### Formats
+${bullets(s.outputs.formats)}
+
+## Notice
+Operational guidance only. No funding, legal, underwriting, compliance, or outcome guarantee.`}
+      function download(name,text,type){const u=URL.createObjectURL(new Blob([text],{type})),a=document.createElement("a");a.href=u;a.download=name;document.body.append(a);a.click();a.remove();URL.revokeObjectURL(u)}
+      async function copy(text){try{await navigator.clipboard.writeText(text);return true}catch(e){const t=document.createElement("textarea");t.value=text;document.body.append(t);t.select();const ok=document.execCommand("copy");t.remove();return ok}}
+
+      buildOptions();restore();show(0,false);
+      nav.addEventListener("click",e=>{const b=e.target.closest("[data-step]");if(!b)return;const n=Number(b.dataset.step);if(n===7){if(validateAll()){save(false);show(7)}}else if(n<=visited||n<step){show(n)}else if(validate(step)){save(false);show(n)}});
+      document.getElementById("prev").onclick=()=>step&&show(step-1);document.getElementById("next").onclick=()=>{if(validate(step)){save(false);show(step+1)}};document.getElementById("review").onclick=()=>{if(validateAll()){save(false);show(7)}};
+      document.getElementById("saveTop").onclick=document.getElementById("saveBottom").onclick=()=>save(true);
+      document.getElementById("draftJson").onclick=()=>{const s=state();download(`${slug(s.workflow.name)}-wizard-draft.json`,JSON.stringify(s,null,2),"application/json");message("Draft JSON downloaded.")};
+      document.getElementById("reset").onclick=()=>{if(confirm("Reset all fields and delete the local draft?")){form.reset();try{localStorage.removeItem(KEY)}catch(e){}done=new Set();visited=0;document.getElementById("draftTitle").textContent="New guardrail map";document.getElementById("draftStatus").textContent="No draft saved yet";show(0)}};
+      document.getElementById("copyPrompt").onclick=async()=>{const {s,a}=render();message(await copy(prompt(s,a))?"GPT prompt copied.":"Copy failed.")};
+      document.getElementById("openGpt").onclick=async()=>{const {s,a}=render(),w=window.open(GPT_URL,"_blank","noopener,noreferrer"),ok=await copy(prompt(s,a));message(ok?(w?"Prompt copied. Paste it into the GPT tab.":"Prompt copied. Open the GPT and paste it."):"Use the downloaded export.")};
+      document.getElementById("downloadMd").onclick=()=>{const {s,a}=render();download(`${slug(s.workflow.name)}-guardrail-intake.md`,markdown(s,a),"text/markdown");message("Markdown downloaded.")};
+      document.getElementById("downloadJson").onclick=()=>{const {s,a}=render();download(`${slug(s.workflow.name)}-guardrail-intake.json`,JSON.stringify({...s,preliminaryAnalysis:a},null,2),"application/json");message("JSON downloaded.")};
+      document.getElementById("print").onclick=()=>{render();print()};
+      form.addEventListener("input",()=>{document.getElementById("draftTitle").textContent=val("workflowName")||"New guardrail map";document.getElementById("draftStatus").textContent="Unsaved changes"});
+      addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="s"){e.preventDefault();save(true)}if(e.altKey&&e.key==="ArrowLeft"&&step){e.preventDefault();show(step-1)}});
+    })();
+  </script>
+</body>
+</html>
