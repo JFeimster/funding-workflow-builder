@@ -1,3 +1,7 @@
+<img width="1200" height="630" alt="Image" src="https://github.com/user-attachments/assets/2250a4bf-aa2a-40bf-84eb-b97320925d3a" />
+
+---
+
 # Funding Workflow Guardrail Builder
 
 ![Status](https://img.shields.io/badge/status-production-22c55e)
