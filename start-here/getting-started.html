@@ -1,0 +1,1297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting Started | Funding Workflow Guardrail Builder</title>
+  <meta name="description" content="Learn what Funding Workflow Guardrail Builder does, what to prepare, what it generates, and how to use the outputs in 3–5 minutes.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#070A12">
+  <link rel="canonical" href="https://funding-workflow-builder.vercel.app/start-here/getting-started.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Getting Started">
+  <meta property="og:description" content="Learn what Funding Workflow Guardrail Builder does, what to prepare, what it generates, and how to use the outputs in 3–5 minutes.">
+  <meta property="og:url" content="https://funding-workflow-builder.vercel.app/start-here/getting-started.html">
+  <meta property="og:image" content="https://funding-workflow-builder.vercel.app/assets/og-image.svg">
+  <meta property="og:site_name" content="Funding Workflow Guardrail Builder">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Getting Started">
+  <meta name="twitter:description" content="Learn what Funding Workflow Guardrail Builder does, what to prepare, what it generates, and how to use the outputs in 3–5 minutes.">
+  <meta name="twitter:image" content="https://funding-workflow-builder.vercel.app/assets/og-image.svg">
+
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+
+  .doc-page {
+    --doc-panel: rgba(16, 24, 39, 0.78);
+    --doc-panel-strong: rgba(21, 31, 50, 0.94);
+    --doc-border: rgba(148, 163, 184, 0.18);
+    --doc-border-strong: rgba(148, 163, 184, 0.28);
+    --doc-purple: #9f67ff;
+    --doc-cyan: #67e8f9;
+    --doc-green: #86efac;
+    --doc-yellow: #fde68a;
+    --doc-red: #fecaca;
+  }
+
+  .doc-hero {
+    padding: clamp(4.5rem, 8vw, 7.25rem) 0 clamp(3.2rem, 6vw, 5rem);
+  }
+
+  .doc-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.72fr);
+    gap: clamp(2.2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .doc-hero h1 {
+    max-width: 880px;
+    margin: 0;
+    font-size: clamp(3.1rem, 7vw, 6.4rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.96;
+  }
+
+  .doc-hero h1 span {
+    display: block;
+    background: linear-gradient(90deg, #ffffff, var(--doc-purple) 48%, var(--doc-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .doc-hero__lead {
+    max-width: 760px;
+    margin: 1.45rem 0 0;
+    color: #b9c4d3;
+    font-size: clamp(1.02rem, 1.7vw, 1.2rem);
+    line-height: 1.72;
+  }
+
+  .doc-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1.15rem;
+  }
+
+  .doc-meta span {
+    padding: 0.38rem 0.62rem;
+    border: 1px solid var(--doc-border);
+    border-radius: 999px;
+    color: #94a3b8;
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .doc-console {
+    position: relative;
+    overflow: hidden;
+    padding: 1.15rem;
+    border: 1px solid rgba(124, 58, 237, 0.34);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 95% 0%, rgba(124, 58, 237, 0.19), transparent 17rem),
+      linear-gradient(180deg, rgba(21, 31, 50, 0.96), rgba(8, 13, 23, 0.98));
+    box-shadow: var(--shadow);
+  }
+
+  .doc-console__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--doc-border);
+    color: #94a3b8;
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    letter-spacing: 0.08em;
+  }
+
+  .doc-console__bar b {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--doc-green);
+  }
+
+  .doc-console__bar b::before {
+    content: "";
+    width: 7px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.76);
+  }
+
+  .doc-console ol {
+    margin: 1rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+    list-style: none;
+  }
+
+  .doc-console li {
+    padding: 0.82rem;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 0.7rem;
+    border: 1px solid var(--doc-border);
+    border-radius: 13px;
+    background: rgba(7, 10, 18, 0.62);
+  }
+
+  .doc-console li > span {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    aspect-ratio: 1;
+    border-radius: 9px;
+    background: rgba(124, 58, 237, 0.12);
+    color: #c4b5fd;
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    font-weight: 900;
+  }
+
+  .doc-console strong {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .doc-console small {
+    display: block;
+    margin-top: 0.12rem;
+    color: #94a3b8;
+    font-size: 0.75rem;
+  }
+
+  .doc-main {
+    padding: clamp(4rem, 7vw, 7rem) 0;
+    border-top: 1px solid var(--doc-border);
+    background: linear-gradient(180deg, rgba(16, 24, 39, 0.45), rgba(7, 10, 18, 0.08));
+  }
+
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .doc-toc {
+    position: sticky;
+    top: 98px;
+    padding: 1rem;
+    border: 1px solid var(--doc-border);
+    border-radius: 16px;
+    background: rgba(8, 13, 23, 0.86);
+    backdrop-filter: blur(14px);
+  }
+
+  .doc-toc__label {
+    margin: 0 0 0.72rem;
+    color: #64748b;
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .doc-toc nav {
+    display: grid;
+    gap: 0.24rem;
+  }
+
+  .doc-toc a {
+    padding: 0.48rem 0.55rem;
+    border-radius: 9px;
+    color: #aeb9c8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+
+  .doc-toc a:hover {
+    background: rgba(124, 58, 237, 0.11);
+    color: #fff;
+  }
+
+  .doc-content {
+    min-width: 0;
+    max-width: 900px;
+  }
+
+  .doc-content > :first-child {
+    margin-top: 0;
+  }
+
+  .doc-content h2,
+  .doc-content h3,
+  .doc-content h4 {
+    scroll-margin-top: 105px;
+    color: #f8fafc;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .doc-content h2 {
+    margin: clamp(4rem, 7vw, 6rem) 0 1.1rem;
+    padding-top: clamp(3rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--doc-border);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+  }
+
+  .doc-content h2:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .doc-content h3 {
+    margin: 2.3rem 0 0.8rem;
+    font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+  }
+
+  .doc-content h4 {
+    margin: 1.8rem 0 0.65rem;
+    font-size: 1.1rem;
+  }
+
+  .doc-content p {
+    margin: 0.9rem 0;
+    color: #b9c4d3;
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .doc-content strong {
+    color: #f8fafc;
+  }
+
+  .doc-content ul,
+  .doc-content ol {
+    margin: 1rem 0;
+    padding-left: 1.35rem;
+    color: #cbd5e1;
+  }
+
+  .doc-content li {
+    margin: 0.46rem 0;
+    line-height: 1.58;
+  }
+
+  .doc-content hr {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid var(--doc-border);
+  }
+
+  .doc-content .content-link {
+    color: #c4b5fd;
+    font-weight: 800;
+    text-underline-offset: 4px;
+  }
+
+  .doc-content .content-link:hover {
+    color: #e9d5ff;
+  }
+
+  .content-callout {
+    margin: 1.25rem 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(6, 182, 212, 0.26);
+    border-left-width: 4px;
+    border-radius: 13px;
+    background: rgba(6, 182, 212, 0.07);
+  }
+
+  .content-callout p {
+    margin: 0;
+    color: #d3e3ef;
+  }
+
+  .content-code {
+    overflow: hidden;
+    margin: 1.25rem 0;
+    border: 1px solid var(--doc-border);
+    border-radius: 15px;
+    background: #050810;
+  }
+
+  .content-code__bar {
+    min-height: 42px;
+    padding: 0.62rem 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    border-bottom: 1px solid var(--doc-border);
+    color: #64748b;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .content-copy {
+    min-height: 31px;
+    padding: 0.43rem 0.65rem;
+    border: 1px solid var(--doc-border);
+    border-radius: 8px;
+    background: rgba(16, 24, 39, 0.8);
+    color: #dbeafe;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 800;
+  }
+
+  .content-copy:hover {
+    border-color: rgba(6, 182, 212, 0.48);
+  }
+
+  .content-code pre {
+    margin: 0;
+    padding: 1rem;
+    overflow-x: auto;
+    color: #dbeafe;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.62;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .content-code code {
+    color: inherit;
+    background: none;
+  }
+
+  .doc-content :not(pre) > code {
+    padding: 0.16rem 0.34rem;
+    border: 1px solid var(--doc-border);
+    border-radius: 6px;
+    background: rgba(16, 24, 39, 0.86);
+    color: #bae6fd;
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+  }
+
+  .content-table-wrap {
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    border: 1px solid var(--doc-border);
+    border-radius: 15px;
+  }
+
+  .content-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    background: rgba(8, 13, 23, 0.78);
+  }
+
+  .content-table th,
+  .content-table td {
+    padding: 0.82rem;
+    border-bottom: 1px solid var(--doc-border);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .content-table th {
+    color: #94a3b8;
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .content-table td {
+    color: #d4deea;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .content-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .doc-content .task-list-item {
+    list-style: none;
+    margin-left: -1.1rem;
+  }
+
+  .doc-content .task-list-item input {
+    margin-right: 0.5rem;
+    accent-color: #7c3aed;
+  }
+
+  .doc-next {
+    margin-top: clamp(4rem, 7vw, 6rem);
+    padding: clamp(1.4rem, 4vw, 2.2rem);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.3rem;
+    align-items: center;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 20px;
+    background:
+      radial-gradient(circle at 92% 35%, rgba(6, 182, 212, 0.1), transparent 17rem),
+      linear-gradient(90deg, rgba(124, 58, 237, 0.14), rgba(16, 24, 39, 0.77));
+  }
+
+  .doc-next h2 {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.7rem);
+    letter-spacing: -0.045em;
+  }
+
+  .doc-next p {
+    margin: 0.65rem 0 0;
+    color: #aeb9c8;
+  }
+
+  .doc-next__actions {
+    min-width: 255px;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  @media (max-width: 980px) {
+    .doc-hero__grid,
+    .doc-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .doc-toc {
+      position: static;
+    }
+
+    .doc-toc nav {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .doc-content {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .doc-toc nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .doc-next {
+      grid-template-columns: 1fr;
+    }
+
+    .doc-next__actions {
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .doc-hero h1 {
+      font-size: clamp(2.8rem, 15vw, 4.4rem);
+    }
+
+    .doc-hero__actions {
+      display: grid;
+    }
+
+    .doc-hero__actions .button {
+      width: 100%;
+    }
+
+    .doc-toc nav {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Getting Started",
+  "url": "https://funding-workflow-builder.vercel.app/start-here/getting-started.html",
+  "description": "Learn what Funding Workflow Guardrail Builder does, what to prepare, what it generates, and how to use the outputs in 3\u20135 minutes.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Funding Workflow Guardrail Builder",
+    "url": "https://funding-workflow-builder.vercel.app"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Funding Workflow Guardrail Builder",
+    "url": "https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://funding-workflow-builder.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Getting Started",
+      "item": "https://funding-workflow-builder.vercel.app/start-here/getting-started.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body class="doc-page">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="announcement" role="status">
+    <div class="container announcement__inner">
+      <span>AI should prepare the file—not quietly become the decision-maker.</span>
+      <span class="mini-zones" aria-label="Green, Yellow, and Red workflow zones">
+        <span class="mini-zone mini-zone--green">G</span>
+        <span class="mini-zone mini-zone--yellow">Y</span>
+        <span class="mini-zone mini-zone--red">R</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Funding Workflow Guardrail Builder home">
+        <span class="brand__mark" aria-hidden="true">
+          <span class="brand__shield">◆</span>
+          <span class="brand__pulse"></span>
+        </span>
+        <span class="brand__text">
+          <strong>Guardrail Builder</strong>
+          <small>Funding Workflow Control</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <span class="sr-only">Toggle navigation</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation" data-nav>
+        <a href="../index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="privacy-input-guide.html">Privacy Guide</a>
+        <a class="button button--small button--primary" href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" target="_blank" rel="noopener noreferrer">
+          Launch GPT
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main-content">
+    <section class="doc-hero" id="top">
+      <div class="container doc-hero__grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Start here / 3–5 minute guide</p>
+          <h1>Build the Controls <span>Before the Consequences</span></h1>
+          <p class="doc-hero__lead">Learn what the tool does, what to prepare, what you will get back, and how to convert the output into review queues, audit fields, escalation logic, and safer funding operations.</p>
+          <div class="doc-hero__actions">
+            <a class="button button--primary button--large" href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" target="_blank" rel="noopener noreferrer">
+              Build My Guardrail Map <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button--ghost button--large" href="privacy-input-guide.html">
+              Review Privacy Rules
+            </a>
+          </div>
+          <div class="doc-meta" aria-label="Page details">
+            <span>Reading time: 3–5 min</span>
+<span>No live applicant data needed</span>
+<span>Static + GPT workflow</span>
+          </div>
+        </div>
+
+        <aside class="doc-console reveal" aria-label="Page workflow">
+          <div class="doc-console__bar">
+            <span>START-HERE / CONTROL SEQUENCE</span>
+            <b>READY</b>
+          </div>
+          <ol>
+            <li><span>01</span><div><strong>Describe the workflow</strong><small>Goal, stages, systems, roles, and data categories.</small></div></li>
+<li><span>02</span><div><strong>Classify the risk</strong><small>Green, Yellow, and Red treatment for every task.</small></div></li>
+<li><span>03</span><div><strong>Assign human control</strong><small>Reviewer, authority, evidence, deadline, and escalation.</small></div></li>
+<li><span>04</span><div><strong>Implement and test</strong><small>CRM fields, queues, routing logic, logs, and synthetic tests.</small></div></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="doc-main">
+      <div class="container doc-layout">
+        <aside class="doc-toc" aria-label="Page contents">
+          <p class="doc-toc__label">On this page</p>
+          <nav>
+            <a href="#at-a-glance">At a Glance</a>
+<a href="#what-the-tool-actually-does">What the Tool Actually Does</a>
+<a href="#the-three-control-zones">The Three Control Zones</a>
+<a href="#what-to-prepare-before-you-start">What to Prepare Before You Start</a>
+<a href="#the-fastest-useful-prompt">The Fastest Useful Prompt</a>
+<a href="#what-you-will-get-back">What You Will Get Back</a>
+<a href="#how-to-use-the-output">How to Use the Output</a>
+<a href="#example-document-collection-workflow">Example: Document Collection Workflow</a>
+<a href="#what-the-tool-does-not-need">What the Tool Does Not Need</a>
+<a href="#before-you-launch-the-gpt">Before You Launch the GPT</a>
+<a href="#start-building">Start Building</a>
+<a href="#important-notice">Important Notice</a>
+          </nav>
+        </aside>
+
+        <article class="doc-content">
+          <p>Funding Workflow Guardrail Builder helps you design human-in-the-loop controls for AI-assisted business-funding workflows.</p>
+<p>Describe how a workflow currently works—or how you want it to work—and the tool can help you map:</p>
+<ul>
+<li>What AI may handle automatically</li>
+<li>What should pause for human review</li>
+<li>Who has authority to approve, override, or escalate</li>
+<li>What evidence should be retained</li>
+<li>Which actions AI should never perform autonomously</li>
+<li>How to translate the controls into a CRM, Notion, Airtable, n8n, or another operating system</li>
+</ul>
+<blockquote class="content-callout">
+<p><strong>Core operating rule:</strong> Automate the preparation. Escalate the uncertainty. Assign the decision. Record what happened.</p>
+</blockquote>
+<p>The tool is designed for funding brokers, agency owners, ISOs, processors, operations teams, fintech builders, CRM consultants, and automation operators.</p>
+<p>It does not approve funding, deny applicants, establish binding terms, declare fraud, or replace an authorized lender, underwriter, legal professional, or compliance reviewer.</p>
+<p><a class="content-link" href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" rel="noopener noreferrer" target="_blank"><strong>Build My Guardrail Map →</strong></a></p>
+<hr/>
+<h2 class="content-heading" id="at-a-glance">At a Glance</h2>
+<h3 class="content-heading" id="what-you-provide">What you provide</h3>
+<p>A high-level description of the workflow, including:</p>
+<ul>
+<li>The business goal</li>
+<li>The major stages</li>
+<li>The systems involved</li>
+<li>The data categories used</li>
+<li>The actions performed by AI and humans</li>
+<li>The communication channels</li>
+<li>The people who review or approve work</li>
+<li>Any known exceptions or risk points</li>
+</ul>
+<h3 class="content-heading" id="what-you-receive">What you receive</h3>
+<p>Depending on your request, the GPT can return:</p>
+<ul>
+<li>A Green, Yellow, and Red task map</li>
+<li>Human-review checkpoints</li>
+<li>Exception triggers</li>
+<li>Reviewer and authority assignments</li>
+<li>Escalation rules</li>
+<li>Audit-log and override-log fields</li>
+<li>Forbidden-action controls</li>
+<li>A 40-point pre-launch QA score</li>
+<li>CRM stages and properties</li>
+<li>Notion or Airtable review-queue schemas</li>
+<li>n8n routing logic</li>
+<li>Synthetic test cases</li>
+<li>An implementation checklist</li>
+</ul>
+<h3 class="content-heading" id="what-you-do-next">What you do next</h3>
+<p>Use the output to:</p>
+<ol>
+<li>Fix unsafe automation.</li>
+<li>Assign real human authority.</li>
+<li>Build review queues and audit fields.</li>
+<li>Test normal and failure conditions.</li>
+<li>Launch in a limited, monitored mode.</li>
+<li>Review overrides, incidents, and changes before scaling.</li>
+</ol>
+<hr/>
+<h2 class="content-heading" id="what-the-tool-actually-does">What the Tool Actually Does</h2>
+<p>Funding Workflow Guardrail Builder turns a rough process into an operational control map.</p>
+<p>It is especially useful when AI is being used for:</p>
+<ul>
+<li>Lead intake</li>
+<li>Document collection</li>
+<li>Bank-statement review support</li>
+<li>Product matching</li>
+<li>Prequalification support</li>
+<li>CRM routing</li>
+<li>Missing-document reminders</li>
+<li>Broker follow-up</li>
+<li>Risk or anomaly flags</li>
+<li>Closing checklists</li>
+<li>Review queues</li>
+<li>Workflow monitoring</li>
+</ul>
+<p>The tool does not assume every AI task is dangerous. It separates work into three practical zones.</p>
+<hr/>
+<h2 class="content-heading" id="the-three-control-zones">The Three Control Zones</h2>
+<h3 class="content-heading" id="green-zone-automate">Green Zone — Automate</h3>
+<p>Green tasks are usually administrative, reversible, and performed under approved rules.</p>
+<p>Examples:</p>
+<ul>
+<li>Create a CRM record</li>
+<li>Organize files</li>
+<li>Detect blank fields</li>
+<li>Generate a checklist</li>
+<li>Transcribe a call</li>
+<li>Assign an internal task</li>
+<li>Send an approved neutral reminder</li>
+</ul>
+<p>Green does not mean “ignore it.” Green work should still be logged, sampled, monitored, and tested.</p>
+<h3 class="content-heading" id="yellow-zone-review">Yellow Zone — Review</h3>
+<p>Yellow tasks involve uncertainty, interpretation, recommendation, or material influence.</p>
+<p>Examples:</p>
+<ul>
+<li>Compare possible funding products</li>
+<li>Extract and analyze bank-statement figures</li>
+<li>Score lead priority</li>
+<li>Identify conflicting information</li>
+<li>Draft a product-fit explanation</li>
+<li>Flag an anomaly</li>
+<li>Prepare a high-impact message</li>
+</ul>
+<p>AI may analyze, calculate, compare, flag, recommend, or draft. A qualified human should inspect the source evidence before the workflow proceeds.</p>
+<h3 class="content-heading" id="red-zone-stop">Red Zone — Stop</h3>
+<p>Red tasks are binding, high-impact, authority-dependent, sensitive, or difficult to reverse.</p>
+<p>Examples:</p>
+<ul>
+<li>Communicate an approval or denial</li>
+<li>Change final pricing or repayment terms</li>
+<li>Declare fraud</li>
+<li>Resolve a complaint or dispute</li>
+<li>Authorize closing</li>
+<li>Authorize disbursement</li>
+<li>Override consent</li>
+<li>Alter applicant-provided facts</li>
+<li>Continue after a serious privacy or audit failure</li>
+</ul>
+<p>For Red tasks, AI should stop autonomous execution, prepare the context, assign an authorized human, and record the decision.</p>
+<blockquote class="content-callout">
+<p><strong>High confidence does not create authority.</strong></p>
+</blockquote>
+<hr/>
+<h2 class="content-heading" id="what-to-prepare-before-you-start">What to Prepare Before You Start</h2>
+<p>You do not need a polished SOP, technical diagram, or complete automation export.</p>
+<p>A useful first input can be a rough workflow description.</p>
+<p>Prepare these seven items:</p>
+<h3 class="content-heading" id="1-workflow-goal">1. Workflow goal</h3>
+<p>What is the workflow supposed to accomplish?</p>
+<p>Examples:</p>
+<ul>
+<li>Collect and organize funding documents</li>
+<li>Route a lead to a human reviewer</li>
+<li>Match a business with possible funding categories</li>
+<li>Detect missing information before submission</li>
+<li>Prepare a deal summary for review</li>
+</ul>
+<h3 class="content-heading" id="2-workflow-stages">2. Workflow stages</h3>
+<p>List the major steps in order.</p>
+<p>Example:</p>
+<div class="content-code"><div class="content-code__bar"><span>COPYABLE EXAMPLE</span><button class="content-copy" data-copy-code="true" type="button">Copy</button></div><pre><code class="language-text">Lead submitted
+→ Consent checked
+→ Documents requested
+→ Documents reviewed
+→ Product categories compared
+→ Human reviewer assigned
+→ Applicant receives approved follow-up
+</code></pre></div>
+<h3 class="content-heading" id="3-systems-involved">3. Systems involved</h3>
+<p>Name the systems without sharing credentials.</p>
+<p>Examples:</p>
+<ul>
+<li>Tally</li>
+<li>HubSpot</li>
+<li>Notion</li>
+<li>Airtable</li>
+<li>Google Drive</li>
+<li>Google Sheets</li>
+<li>n8n</li>
+<li>Zapier</li>
+<li>Make</li>
+<li>Email</li>
+<li>SMS</li>
+<li>Client portal</li>
+</ul>
+<h3 class="content-heading" id="4-data-categories">4. Data categories</h3>
+<p>Describe the type of information used—not the live information itself.</p>
+<p>Examples:</p>
+<ul>
+<li>Business name</li>
+<li>Requested amount</li>
+<li>Time in business</li>
+<li>Monthly revenue range</li>
+<li>Document status</li>
+<li>Bank-statement totals</li>
+<li>Ownership-verification status</li>
+<li>Communication-consent status</li>
+</ul>
+<h3 class="content-heading" id="5-ai-actions">5. AI actions</h3>
+<p>What does AI currently do or what do you want it to do?</p>
+<p>Examples:</p>
+<ul>
+<li>Extract fields</li>
+<li>Summarize notes</li>
+<li>Compare criteria</li>
+<li>Draft reminders</li>
+<li>Assign risk flags</li>
+<li>Recommend a workflow route</li>
+<li>Generate a review record</li>
+</ul>
+<h3 class="content-heading" id="6-human-roles">6. Human roles</h3>
+<p>Who reviews, corrects, approves, or escalates?</p>
+<p>Examples:</p>
+<ul>
+<li>Intake specialist</li>
+<li>Processor</li>
+<li>Funding broker</li>
+<li>Operations manager</li>
+<li>Compliance reviewer</li>
+<li>Authorized creditor representative</li>
+<li>Underwriter</li>
+<li>Workflow administrator</li>
+<li>Incident owner</li>
+</ul>
+<h3 class="content-heading" id="7-known-exceptions">7. Known exceptions</h3>
+<p>What should cause the workflow to slow down or stop?</p>
+<p>Examples:</p>
+<ul>
+<li>Missing consent</li>
+<li>Unreadable document</li>
+<li>Conflicting revenue figures</li>
+<li>Low extraction confidence</li>
+<li>Stale product criteria</li>
+<li>Approval language</li>
+<li>Complaint or dispute</li>
+<li>Terms changed</li>
+<li>Audit logging failed</li>
+</ul>
+<hr/>
+<h2 class="content-heading" id="the-fastest-useful-prompt">The Fastest Useful Prompt</h2>
+<p>Copy, edit, and paste this into the GPT:</p>
+<div class="content-code"><div class="content-code__bar"><span>COPYABLE EXAMPLE</span><button class="content-copy" data-copy-code="true" type="button">Copy</button></div><pre><code class="language-text">Build a Quick Guardrail Map for the workflow below.
+
+Organization role:
+[funding broker / agency / processor / fintech provider / other]
+
+Workflow goal:
+[what the workflow should accomplish]
+
+Stages:
+[step 1 → step 2 → step 3]
+
+Systems:
+[CRM, forms, Drive, email, n8n, etc.]
+
+Data categories:
+[field names and data types only—no live sensitive data]
+
+AI actions:
+[what AI prepares, analyzes, drafts, or routes]
+
+Human roles:
+[who reviews, approves, or escalates]
+
+Known exceptions:
+[missing data, conflicts, low confidence, complaints, terms changes, etc.]
+
+Return:
+1. Green, Yellow, and Red task classifications
+2. Human-review triggers
+3. Reviewer roles and authority
+4. Required evidence
+5. Escalation rules
+6. Forbidden actions
+7. Audit fields
+8. The next five implementation steps
+</code></pre></div>
+<hr/>
+<h2 class="content-heading" id="what-you-will-get-back">What You Will Get Back</h2>
+<p>The exact output depends on the mode you request.</p>
+<h3 class="content-heading" id="quick-guardrail-map">Quick Guardrail Map</h3>
+<p>Best when you need a fast first pass.</p>
+<p>Typical output:</p>
+<div class="content-table-wrap"><table class="content-table">
+<thead>
+<tr>
+<th>Task</th>
+<th>Zone</th>
+<th>AI may do</th>
+<th>Human trigger</th>
+<th>Reviewer</th>
+<th>Prohibited action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create CRM record</td>
+<td>Green</td>
+<td>Normalize and save approved fields</td>
+<td>Source validation fails</td>
+<td>Intake specialist</td>
+<td>Infer missing eligibility data</td>
+</tr>
+<tr>
+<td>Compare product criteria</td>
+<td>Yellow</td>
+<td>Compare verified fields to current criteria</td>
+<td>Criteria are stale or estimated</td>
+<td>Funding broker</td>
+<td>Present match as approval</td>
+</tr>
+<tr>
+<td>Draft approval message</td>
+<td>Red</td>
+<td>Prepare internal context only</td>
+<td>Always</td>
+<td>Authorized decision-maker</td>
+<td>Send or imply approval</td>
+</tr>
+</tbody>
+</table></div>
+<h3 class="content-heading" id="full-workflow-design">Full Workflow Design</h3>
+<p>Best when you are building or rebuilding the operating process.</p>
+<p>It may include:</p>
+<ul>
+<li>Workflow stages</li>
+<li>Inputs and outputs</li>
+<li>AI-permitted actions</li>
+<li>Human-review triggers</li>
+<li>Reviewer roles</li>
+<li>Authority levels</li>
+<li>Escalation routes</li>
+<li>Audit fields</li>
+<li>Forbidden actions</li>
+<li>Testing requirements</li>
+<li>Implementation sequence</li>
+</ul>
+<h3 class="content-heading" id="existing-workflow-audit">Existing Workflow Audit</h3>
+<p>Best when you already have an SOP, CRM flow, n8n workflow, Zap, Make scenario, or process diagram.</p>
+<p>The audit can identify:</p>
+<ul>
+<li>Missing human checkpoints</li>
+<li>Unclear decision authority</li>
+<li>Unsafe autonomous sends</li>
+<li>Weak confidence handling</li>
+<li>Missing evidence</li>
+<li>Missing pause controls</li>
+<li>Privacy risks</li>
+<li>Audit gaps</li>
+<li>Failure paths that quietly continue</li>
+</ul>
+<h3 class="content-heading" id="pre-launch-qa-score">Pre-Launch QA Score</h3>
+<p>Best before a pilot or production release.</p>
+<p>The scorecard evaluates 20 controls from 0 to 2 for a maximum of 40 points.</p>
+<ul>
+<li><strong>34–40:</strong> Controlled launch candidate</li>
+<li><strong>26–33:</strong> Conditional</li>
+<li><strong>16–25:</strong> High-risk pilot</li>
+<li><strong>0–15:</strong> Not ready</li>
+</ul>
+<p>A high score indicates stronger operational controls. It does not guarantee legal or regulatory compliance.</p>
+<h3 class="content-heading" id="implementation-outputs">Implementation Outputs</h3>
+<p>You can also request:</p>
+<ul>
+<li>n8n routing specification</li>
+<li>CRM pipeline and field map</li>
+<li>Notion review queue</li>
+<li>Airtable review base</li>
+<li>Audit-log JSON schema</li>
+<li>Override-log template</li>
+<li>CSV export headers</li>
+<li>Synthetic test cases</li>
+<li>Safe-language templates</li>
+</ul>
+<hr/>
+<h2 class="content-heading" id="how-to-use-the-output">How to Use the Output</h2>
+<p>Do not treat the first response as a production deployment order.</p>
+<p>Use this sequence.</p>
+<h3 class="content-heading" id="step-1-confirm-the-workflow-facts">Step 1 — Confirm the workflow facts</h3>
+<p>Check:</p>
+<ul>
+<li>Are the stages correct?</li>
+<li>Are the systems accurate?</li>
+<li>Are the data categories complete?</li>
+<li>Did the tool label any assumption as a fact?</li>
+<li>Are provider criteria current and sourced?</li>
+</ul>
+<h3 class="content-heading" id="step-2-confirm-human-authority">Step 2 — Confirm human authority</h3>
+<p>For every Yellow or Red task, ask:</p>
+<ul>
+<li>Who reviews it?</li>
+<li>Can that person stop the workflow?</li>
+<li>Can that person correct the record?</li>
+<li>Does that person have authority to approve or communicate the action?</li>
+<li>Is the reviewer different from the final decision-maker?</li>
+</ul>
+<p>A broker, processor, or workflow administrator should not be treated as a creditor simply because they use the software.</p>
+<h3 class="content-heading" id="step-3-build-the-review-path">Step 3 — Build the review path</h3>
+<p>Translate the output into:</p>
+<ul>
+<li>CRM statuses</li>
+<li>Review queues</li>
+<li>Assigned owners</li>
+<li>Deadlines</li>
+<li>Evidence links</li>
+<li>Escalation flags</li>
+<li>Decision fields</li>
+<li>Override records</li>
+</ul>
+<h3 class="content-heading" id="step-4-block-forbidden-actions">Step 4 — Block forbidden actions</h3>
+<p>Add technical or procedural controls that prevent:</p>
+<ul>
+<li>Approval promises</li>
+<li>Unsupported denial language</li>
+<li>Fraud accusations</li>
+<li>Binding-term changes</li>
+<li>Consent overrides</li>
+<li>Sensitive-data exposure</li>
+<li>Unverified submissions</li>
+<li>Audit-log deletion</li>
+<li>Closing or disbursement without authority</li>
+</ul>
+<h3 class="content-heading" id="step-5-test-with-synthetic-records">Step 5 — Test with synthetic records</h3>
+<p>Test:</p>
+<ul>
+<li>Normal records</li>
+<li>Missing data</li>
+<li>Low confidence</li>
+<li>Conflicting evidence</li>
+<li>Unauthorized messages</li>
+<li>Complaints</li>
+<li>Prompt injection</li>
+<li>API failures</li>
+<li>Audit failures</li>
+<li>Human overrides</li>
+<li>Incident pause and restart</li>
+</ul>
+<h3 class="content-heading" id="step-6-launch-narrowly">Step 6 — Launch narrowly</h3>
+<p>Start with:</p>
+<ul>
+<li>Low-risk workflow stages</li>
+<li>Limited users</li>
+<li>Limited volume</li>
+<li>Mandatory Yellow and Red review</li>
+<li>Disabled external writes where practical</li>
+<li>Active monitoring</li>
+<li>A tested pause or shutdown control</li>
+</ul>
+<h3 class="content-heading" id="step-7-review-what-happens">Step 7 — Review what happens</h3>
+<p>Track:</p>
+<ul>
+<li>Reviewer overrides</li>
+<li>Repeated errors</li>
+<li>Missed triggers</li>
+<li>Queue delays</li>
+<li>Complaints</li>
+<li>Incidents</li>
+<li>Model or prompt changes</li>
+<li>Provider-policy changes</li>
+</ul>
+<p>The workflow is not finished when it launches. Monitoring is part of the control system.</p>
+<hr/>
+<h2 class="content-heading" id="example-document-collection-workflow">Example: Document Collection Workflow</h2>
+<h3 class="content-heading" id="rough-input">Rough input</h3>
+<div class="content-code"><div class="content-code__bar"><span>COPYABLE EXAMPLE</span><button class="content-copy" data-copy-code="true" type="button">Copy</button></div><pre><code class="language-text">A Tally form collects lead information.
+The CRM creates a lead.
+The system sends a document checklist.
+Uploaded statements are classified and summarized.
+Missing documents trigger reminders.
+A broker reviews the completed file before product matching.
+</code></pre></div>
+<h3 class="content-heading" id="likely-first-pass-classification">Likely first-pass classification</h3>
+<p><strong>Green</strong></p>
+<ul>
+<li>Create CRM record</li>
+<li>Generate checklist</li>
+<li>Name and organize files</li>
+<li>Detect a missing document</li>
+<li>Send an approved neutral reminder with verified consent</li>
+</ul>
+<p><strong>Yellow</strong></p>
+<ul>
+<li>Extract financial figures</li>
+<li>Compare statements with reported values</li>
+<li>Summarize cash-flow observations</li>
+<li>Recommend possible product categories</li>
+</ul>
+<p><strong>Red</strong></p>
+<ul>
+<li>Promise approval</li>
+<li>Communicate a denial</li>
+<li>Declare a document fraudulent</li>
+<li>Change final terms</li>
+<li>Authorize closing or disbursement</li>
+</ul>
+<h3 class="content-heading" id="useful-implementation-outputs">Useful implementation outputs</h3>
+<ul>
+<li>Document-review triggers</li>
+<li>Processor queue</li>
+<li>Evidence-link fields</li>
+<li>Approved reminder templates</li>
+<li>Product-review checkpoint</li>
+<li>Audit and override schema</li>
+<li>Synthetic low-confidence tests</li>
+</ul>
+<hr/>
+<h2 class="content-heading" id="what-the-tool-does-not-need">What the Tool Does Not Need</h2>
+<p>You do not need to paste:</p>
+<ul>
+<li>A real applicant’s Social Security number</li>
+<li>Full bank-account numbers</li>
+<li>API keys</li>
+<li>OAuth tokens</li>
+<li>Passwords</li>
+<li>One-time codes</li>
+<li>Unredacted identity documents</li>
+<li>Complete live financial records</li>
+<li>Private credentials</li>
+<li>Sensitive data copied from a secure system</li>
+</ul>
+<p>Describe the structure and use redacted or synthetic examples.</p>
+<p>Read the full privacy guide before submitting a workflow:</p>
+<p><strong>Next page:</strong> <code>privacy-input-guide.html</code></p>
+<hr/>
+<h2 class="content-heading" id="before-you-launch-the-gpt">Before You Launch the GPT</h2>
+<p>Use this quick checklist:</p>
+<ul>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I can explain the workflow goal.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I know the major stages.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I can name the systems without sharing credentials.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I can describe data categories without pasting sensitive values.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I know which actions AI performs.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I know who currently reviews or approves work.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I have listed known exceptions.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I have removed applicant identifiers and secrets.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I understand that the output is operational guidance.</li>
+<li class="content-task task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>I will verify high-impact decisions with an authorized human.</li>
+</ul>
+<hr/>
+<h2 class="content-heading" id="start-building">Start Building</h2>
+<p>You do not need a perfect workflow.</p>
+<p>Start with the rough version. The tool can help expose what is missing, what is unsafe, and what needs a human owner.</p>
+<p><a class="content-link" href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" rel="noopener noreferrer" target="_blank"><strong>Build My Guardrail Map →</strong></a></p>
+<p>Secondary action:</p>
+<p><a class="content-link" href="privacy-input-guide.html"><strong>Review What to Paste and What Not to Paste →</strong></a></p>
+<hr/>
+<h2 class="content-heading" id="important-notice">Important Notice</h2>
+<p>Funding Workflow Guardrail Builder provides educational and operational workflow guidance. It does not provide legal, lending, underwriting, tax, accounting, or compliance advice.</p>
+<p>It does not guarantee:</p>
+<ul>
+<li>Funding approval</li>
+<li>Eligibility</li>
+<li>Funding speed</li>
+<li>Final terms</li>
+<li>Business results</li>
+<li>Regulatory compliance</li>
+</ul>
+<p>Requirements vary by organization, product, provider, workflow, role, and jurisdiction. Qualified professionals and authorized decision-makers should review high-impact workflows and decisions.</p>
+
+
+          <section class="doc-next">
+            <div>
+              <p class="eyebrow">What to do next</p>
+              <h2>You Do Not Need a Perfect Workflow</h2>
+              <p>Start with the rough version. The tool can expose what is missing, what is unsafe, and what needs a real human owner.</p>
+            </div>
+            <div class="doc-next__actions">
+              <a class="button button--primary button--large" href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" target="_blank" rel="noopener noreferrer">
+                Build My Guardrail Map ↗
+              </a>
+              <a class="button button--ghost button--large" href="privacy-input-guide.html">
+                Review Privacy Rules
+              </a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <a class="brand brand--footer" href="../index.html">
+          <span class="brand__mark" aria-hidden="true"><span class="brand__shield">◆</span></span>
+          <span class="brand__text">
+            <strong>Funding Workflow Guardrail Builder</strong>
+            <small>by Moonshine Capital</small>
+          </span>
+        </a>
+        <p>Operational controls for AI-assisted funding workflows.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="https://chatgpt.com/g/g-6a57c12bd01c8191acf2a3a0b038961c-funding-workflow-guardrail-builder" target="_blank" rel="noopener noreferrer">Launch GPT</a>
+        <a href="https://docs.google.com/document/d/14ruSLY4yOFT50nSbCNeuB5c_H1O-zrWLNM1qHBz7yns/copy" target="_blank" rel="noopener noreferrer">Human Review Map</a>
+        <a href="https://drive.google.com/drive/folders/1jkd-9yCnccVC7Jc21YTVgu8h1aElrgDB" target="_blank" rel="noopener noreferrer">Automation Pack</a>
+        <a href="../embed.html">Embed Version</a>
+      </nav>
+    </div>
+    <div class="container site-footer__notice">
+      This tool provides educational and operational workflow guidance. It does not provide legal, lending, underwriting, tax, accounting, privacy, security, or compliance advice. It does not guarantee funding approval, eligibility, timing, terms, business results, or regulatory compliance.
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+
+  <script>
+    (() => {
+      "use strict";
+
+      document.querySelectorAll("[data-copy-code]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const wrapper = button.closest(".content-code");
+          const pre = wrapper?.querySelector("pre");
+          if (!pre) return;
+
+          const original = button.textContent;
+          try {
+            await navigator.clipboard.writeText(pre.innerText);
+            button.textContent = "Copied";
+          } catch (error) {
+            const range = document.createRange();
+            range.selectNodeContents(pre);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            button.textContent = "Selected";
+          }
+
+          window.setTimeout(() => {
+            button.textContent = original;
+          }, 1600);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
