@@ -1,0 +1,89 @@
+name: Set Up Issue Labels
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/setup-issue-labels.yml
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-and-apply-labels:
+    name: Create and apply issue labels
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Create or update reusable labels
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          create_label() {
+            gh label create "$1" --color "$2" --description "$3" --force
+          }
+
+          # Type
+          create_label "type: epic" "5319E7" "Parent issue that coordinates multiple related tasks"
+          create_label "type: task" "1D76DB" "Defined implementation task with a clear completion condition"
+          create_label "type: bug" "D73A4A" "Something is broken or behaving incorrectly"
+          create_label "type: feature" "A2EEEF" "New capability or user-facing enhancement"
+          create_label "type: docs" "0075CA" "Documentation, README, examples, or instructions"
+          create_label "type: maintenance" "6E7781" "Repository upkeep, cleanup, or dependency work"
+
+          # Area
+          create_label "area: seo" "0E8A16" "Search visibility, indexing, canonical, schema, or crawler work"
+          create_label "area: metadata" "2EA44F" "Canonical, Open Graph, Twitter, JSON-LD, or document metadata"
+          create_label "area: deployment" "8250DF" "Vercel, release, production, domain, or deployment configuration"
+          create_label "area: embed" "D4C5F9" "Embeddable 1200x940 interface or iframe behavior"
+          create_label "area: accessibility" "C2E0C6" "Keyboard, focus, contrast, semantic, or reduced-motion work"
+          create_label "area: analytics" "BFDADC" "CTA events, analytics hooks, attribution, or measurement"
+          create_label "area: content" "F9D0C4" "Copy, page content, FAQs, product positioning, or resources"
+          create_label "area: automation" "FBCA04" "GitHub Actions, workflow automation, or connected operations"
+
+          # Priority
+          create_label "priority: critical" "B60205" "Production-blocking or high-risk issue requiring immediate action"
+          create_label "priority: high" "D93F0B" "Important work that should be completed before the next release"
+          create_label "priority: medium" "FBCA04" "Normal planned work"
+          create_label "priority: low" "C5DEF5" "Useful improvement with no immediate release impact"
+
+          # Status
+          create_label "status: ready" "0E8A16" "Requirements are clear and the issue is ready to implement"
+          create_label "status: in progress" "1D76DB" "Work has started"
+          create_label "status: needs review" "D4C5F9" "Implementation or decision requires review"
+          create_label "status: blocked" "B60205" "Cannot proceed until a dependency or decision is resolved"
+
+          # Workflow utility
+          create_label "automerge" "6F42C1" "Enable auto-merge after required checks and reviews pass"
+
+      - name: Apply labels to current issues
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          gh issue edit 1 --add-label "type: epic,area: seo,area: deployment,priority: high,status: ready"
+          gh issue edit 2 --add-label "type: task,area: seo,area: metadata,priority: high,status: ready"
+          gh issue edit 3 --add-label "type: task,area: seo,area: metadata,priority: high,status: ready"
+          gh issue edit 4 --add-label "type: task,area: seo,area: deployment,priority: high,status: ready"
+          gh issue edit 5 --add-label "type: task,area: seo,area: metadata,priority: high,status: ready"
+
+      - name: Print label guidance
+        shell: bash
+        run: |
+          cat <<'EOF'
+          Label strategy installed.
+
+          Recommended usage for future issues:
+          - Choose one type label.
+          - Choose one or more area labels.
+          - Choose one priority label.
+          - Choose one status label.
+          - Add automerge only to eligible pull requests.
+          EOF
